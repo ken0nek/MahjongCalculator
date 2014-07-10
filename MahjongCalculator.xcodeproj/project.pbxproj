@@ -1,0 +1,427 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4AC90F47196E2399004829BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC90F46196E2399004829BB /* AppDelegate.swift */; };
+		4AC90F4A196E2399004829BB /* MahjongCalculator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4AC90F48196E2399004829BB /* MahjongCalculator.xcdatamodeld */; };
+		4AC90F4C196E2399004829BB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC90F4B196E2399004829BB /* ViewController.swift */; };
+		4AC90F4F196E2399004829BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AC90F4D196E2399004829BB /* Main.storyboard */; };
+		4AC90F51196E2399004829BB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AC90F50196E2399004829BB /* Images.xcassets */; };
+		4AC90F5D196E239A004829BB /* MahjongCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC90F5C196E239A004829BB /* MahjongCalculatorTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4AC90F57196E239A004829BB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4AC90F39196E2399004829BB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4AC90F40196E2399004829BB;
+			remoteInfo = MahjongCalculator;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4AC90F41196E2399004829BB /* MahjongCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MahjongCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4AC90F45196E2399004829BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4AC90F46196E2399004829BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4AC90F49196E2399004829BB /* MahjongCalculator.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MahjongCalculator.xcdatamodel; sourceTree = "<group>"; };
+		4AC90F4B196E2399004829BB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4AC90F4E196E2399004829BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4AC90F50196E2399004829BB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		4AC90F56196E239A004829BB /* MahjongCalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MahjongCalculatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4AC90F5B196E239A004829BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4AC90F5C196E239A004829BB /* MahjongCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MahjongCalculatorTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4AC90F3E196E2399004829BB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4AC90F53196E239A004829BB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4AC90F38196E2399004829BB = {
+			isa = PBXGroup;
+			children = (
+				4AC90F43196E2399004829BB /* MahjongCalculator */,
+				4AC90F59196E239A004829BB /* MahjongCalculatorTests */,
+				4AC90F42196E2399004829BB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4AC90F42196E2399004829BB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4AC90F41196E2399004829BB /* MahjongCalculator.app */,
+				4AC90F56196E239A004829BB /* MahjongCalculatorTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4AC90F43196E2399004829BB /* MahjongCalculator */ = {
+			isa = PBXGroup;
+			children = (
+				4AC90F46196E2399004829BB /* AppDelegate.swift */,
+				4AC90F4B196E2399004829BB /* ViewController.swift */,
+				4AC90F4D196E2399004829BB /* Main.storyboard */,
+				4AC90F50196E2399004829BB /* Images.xcassets */,
+				4AC90F48196E2399004829BB /* MahjongCalculator.xcdatamodeld */,
+				4AC90F44196E2399004829BB /* Supporting Files */,
+			);
+			path = MahjongCalculator;
+			sourceTree = "<group>";
+		};
+		4AC90F44196E2399004829BB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4AC90F45196E2399004829BB /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4AC90F59196E239A004829BB /* MahjongCalculatorTests */ = {
+			isa = PBXGroup;
+			children = (
+				4AC90F5C196E239A004829BB /* MahjongCalculatorTests.swift */,
+				4AC90F5A196E239A004829BB /* Supporting Files */,
+			);
+			path = MahjongCalculatorTests;
+			sourceTree = "<group>";
+		};
+		4AC90F5A196E239A004829BB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4AC90F5B196E239A004829BB /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4AC90F40196E2399004829BB /* MahjongCalculator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4AC90F60196E239A004829BB /* Build configuration list for PBXNativeTarget "MahjongCalculator" */;
+			buildPhases = (
+				4AC90F3D196E2399004829BB /* Sources */,
+				4AC90F3E196E2399004829BB /* Frameworks */,
+				4AC90F3F196E2399004829BB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MahjongCalculator;
+			productName = MahjongCalculator;
+			productReference = 4AC90F41196E2399004829BB /* MahjongCalculator.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4AC90F55196E239A004829BB /* MahjongCalculatorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4AC90F63196E239A004829BB /* Build configuration list for PBXNativeTarget "MahjongCalculatorTests" */;
+			buildPhases = (
+				4AC90F52196E239A004829BB /* Sources */,
+				4AC90F53196E239A004829BB /* Frameworks */,
+				4AC90F54196E239A004829BB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4AC90F58196E239A004829BB /* PBXTargetDependency */,
+			);
+			name = MahjongCalculatorTests;
+			productName = MahjongCalculatorTests;
+			productReference = 4AC90F56196E239A004829BB /* MahjongCalculatorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4AC90F39196E2399004829BB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = Tommy;
+				TargetAttributes = {
+					4AC90F40196E2399004829BB = {
+						CreatedOnToolsVersion = 6.0;
+					};
+					4AC90F55196E239A004829BB = {
+						CreatedOnToolsVersion = 6.0;
+						TestTargetID = 4AC90F40196E2399004829BB;
+					};
+				};
+			};
+			buildConfigurationList = 4AC90F3C196E2399004829BB /* Build configuration list for PBXProject "MahjongCalculator" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4AC90F38196E2399004829BB;
+			productRefGroup = 4AC90F42196E2399004829BB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4AC90F40196E2399004829BB /* MahjongCalculator */,
+				4AC90F55196E239A004829BB /* MahjongCalculatorTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4AC90F3F196E2399004829BB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4AC90F4F196E2399004829BB /* Main.storyboard in Resources */,
+				4AC90F51196E2399004829BB /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4AC90F54196E239A004829BB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4AC90F3D196E2399004829BB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4AC90F4C196E2399004829BB /* ViewController.swift in Sources */,
+				4AC90F4A196E2399004829BB /* MahjongCalculator.xcdatamodeld in Sources */,
+				4AC90F47196E2399004829BB /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4AC90F52196E239A004829BB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4AC90F5D196E239A004829BB /* MahjongCalculatorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4AC90F58196E239A004829BB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4AC90F40196E2399004829BB /* MahjongCalculator */;
+			targetProxy = 4AC90F57196E239A004829BB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4AC90F4D196E2399004829BB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4AC90F4E196E2399004829BB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4AC90F5E196E239A004829BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4AC90F5F196E239A004829BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4AC90F61196E239A004829BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = MahjongCalculator/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		4AC90F62196E239A004829BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = MahjongCalculator/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		4AC90F64196E239A004829BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MahjongCalculator.app/MahjongCalculator";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MahjongCalculatorTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Debug;
+		};
+		4AC90F65196E239A004829BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MahjongCalculator.app/MahjongCalculator";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MahjongCalculatorTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4AC90F3C196E2399004829BB /* Build configuration list for PBXProject "MahjongCalculator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4AC90F5E196E239A004829BB /* Debug */,
+				4AC90F5F196E239A004829BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4AC90F60196E239A004829BB /* Build configuration list for PBXNativeTarget "MahjongCalculator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4AC90F61196E239A004829BB /* Debug */,
+				4AC90F62196E239A004829BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		4AC90F63196E239A004829BB /* Build configuration list for PBXNativeTarget "MahjongCalculatorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4AC90F64196E239A004829BB /* Debug */,
+				4AC90F65196E239A004829BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4AC90F48196E2399004829BB /* MahjongCalculator.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4AC90F49196E2399004829BB /* MahjongCalculator.xcdatamodel */,
+			);
+			currentVersion = 4AC90F49196E2399004829BB /* MahjongCalculator.xcdatamodel */;
+			path = MahjongCalculator.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 4AC90F39196E2399004829BB /* Project object */;
+}
