@@ -18,6 +18,7 @@
 		4AC90F6D196E51C7004829BB /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC90F6C196E51C7004829BB /* Game.swift */; };
 		4AF204A0196F769B00891AFD /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF2049F196F769B00891AFD /* BaseViewController.swift */; };
 		4AF204A2196F7EE600891AFD /* CalculationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF204A1196F7EE600891AFD /* CalculationViewController.swift */; };
+		4AF204AA196FE0EB00891AFD /* Points.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF204A9196FE0EB00891AFD /* Points.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		4AC90F6C196E51C7004829BB /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		4AF2049F196F769B00891AFD /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		4AF204A1196F7EE600891AFD /* CalculationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculationViewController.swift; sourceTree = "<group>"; };
+		4AF204A9196FE0EB00891AFD /* Points.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Points.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 				4AC90F68196E4C37004829BB /* GameManager.swift */,
 				4AC90F6C196E51C7004829BB /* Game.swift */,
 				4AC90F6A196E4C48004829BB /* Player.swift */,
+				4AF204A9196FE0EB00891AFD /* Points.swift */,
 				4AC90F50196E2399004829BB /* Images.xcassets */,
 				4AC90F48196E2399004829BB /* MahjongCalculator.xcdatamodeld */,
 				4AC90F44196E2399004829BB /* Supporting Files */,
@@ -230,6 +233,7 @@
 				4AC90F67196E2454004829BB /* MainViewController.swift in Sources */,
 				4AC90F6D196E51C7004829BB /* Game.swift in Sources */,
 				4AC90F69196E4C37004829BB /* GameManager.swift in Sources */,
+				4AF204AA196FE0EB00891AFD /* Points.swift in Sources */,
 				4AC90F4A196E2399004829BB /* MahjongCalculator.xcdatamodeld in Sources */,
 				4AC90F6B196E4C48004829BB /* Player.swift in Sources */,
 				4AF204A0196F769B00891AFD /* BaseViewController.swift in Sources */,

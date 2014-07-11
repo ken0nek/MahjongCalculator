@@ -10,7 +10,7 @@ import UIKit
 
 class CalculationViewController: BaseViewController {
 
-    var gameManager = GameManager.sharedManager()
+    let gameManager = GameManager.sharedManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()

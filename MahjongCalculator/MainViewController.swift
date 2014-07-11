@@ -38,11 +38,9 @@ class MainViewController: BaseViewController {
             Player(playerID: 3, playerName: "でぃ", isDealer: false)]
         
         
-        gameManager.startGame(Game(players: players))
+        gameManager.startGame(Game(players: players, startingPlayer: players[0]))
         let game = gameManager.games[gameManager.currentGameIndex] as Game
         
-        gameLabel.text = game.round.toString() + game.hand.toString()
-     
         pointLabels += pointLabel1
         pointLabels += pointLabel2
         pointLabels += pointLabel3
@@ -52,6 +50,9 @@ class MainViewController: BaseViewController {
         nameLabels += nameLabel2
         nameLabels += nameLabel3
         nameLabels += nameLabel4
+        
+        let points: Points = Points.calculatePoints(Yaku(fan: 5, fu: 0), winType: WinType.Discard)
+        game.players[0].winOnDiscard(game.players[1], points: points)
         
         for pointLabel in pointLabels {
             let player = game.players[pointLabel.tag-Int(1)] as Player
@@ -65,6 +66,7 @@ class MainViewController: BaseViewController {
             rotateLabel(nameLabel)
         }
         
+        gameLabel.text = game.round.toString() + game.hand.toString()
     }
 
     override func didReceiveMemoryWarning() {
@@ -78,7 +80,7 @@ class MainViewController: BaseViewController {
     
     @IBAction func goForward() {
         let game = gameManager.games[gameManager.currentGameIndex] as Game
-        game.nextHand()
+        game.goForward()
         gameLabel.text = game.round.toString() + game.hand.toString()
     }
     

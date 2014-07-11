@@ -13,10 +13,23 @@ enum Round {
     
     func toString() -> String {
         switch self {
-        case .East: return "東"
-        case .South: return "南"
-        case .West: return "西"
-        case .North: return "北"
+        case East: return "東"
+        case South: return "南"
+        case West: return "西"
+        case North: return "北"
+        }
+    }
+    
+    mutating func next() {
+        switch self {
+        case .East:
+            self = South
+        case .South:
+            self = West
+        case .West:
+            self = North
+        case .North:
+            self = East
         }
     }
 }
@@ -26,10 +39,23 @@ enum Hand {
     
     func toString() -> String {
         switch self {
-        case .First: return "一局"
-        case .Second: return "二局"
-        case .Third: return "三局"
-        case .Fourth: return "四局"
+        case First: return "一局"
+        case Second: return "二局"
+        case Third: return "三局"
+        case Fourth: return "四局"
+        }
+    }
+    
+    mutating func next()  {
+        switch self {
+        case .First:
+            self = Second
+        case .Second:
+            self = Third
+        case .Third:
+            self = Fourth
+        case .Fourth:
+            self = First
         }
     }
 }
@@ -38,37 +64,20 @@ class Game: NSObject {
     var round: Round
     var hand: Hand
     var players: [Player]
+    var startingPlayer: Player
     
-    init(players: [Player]) {
+    init(players: [Player], startingPlayer: Player) {
         self.round = .East
         self.hand = .First
         self.players = players
+        self.startingPlayer = startingPlayer
     }
     
-    func nextRound() {
-        switch self.round {
-        case .East:
-            self.round = .South
-        case .South:
-            self.round = .West
-        case .West:
-            self.round = .North
-        case .North:
-            self.round = .East
+    func goForward() {
+        if self.hand == Hand.Fourth {
+            self.round.next()
         }
-    }
-    
-    func nextHand()  {
-        switch self.hand {
-        case .First:
-            self.hand = .Second
-        case .Second:
-            self.hand = .Third
-        case .Third:
-            self.hand = .Fourth
-        case .Fourth:
-            self.hand = .First
-            nextRound()
-        }
+        
+        self.hand.next()
     }
 }
