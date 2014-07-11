@@ -8,13 +8,60 @@
 
 import UIKit
 
+//enum WinType {
+//    case SelfPick, Discard
+//}
+
 struct Yaku {
     let fan: Int
     let fu: Int
-}
+    
+    init() {
+        self.fan = 0
+        self.fu = 0
+    }
+    
+    init(fan: Int, fu: Int) {
+        self.fan = fan
+        self.fu = fu
+    }
+    
+    func calculatePoints(winPlayer: Player, targetPlayer: Player?) -> Points {
+        
+        if winPlayer.isDealer {
+            if targetPlayer {
+                return calculateDealerDiscardPoints()
+            } else {
+                return calculateDealerSelfPickPoints()
+            }
+        } else {
+            if targetPlayer {
+               return calculateDiscardPoints()
+            } else {
+               return calculateSelfPickPoints()
+            }
+        }
+    }
 
-enum WinType {
-    case SelfPick, Discard
+    // is dealer self-pick
+    func calculateDealerSelfPickPoints() -> Points {
+        return Points(first: 4000, second: 0)
+    }
+    
+    // is dealer discard
+    func calculateDealerDiscardPoints() -> Points {
+        return Points(first: 12000, second: 0)
+    }
+    
+    // not dealer self-pick
+    func calculateSelfPickPoints() -> Points {
+        return  Points(first: 4000, second: 2000)
+    }
+    
+    // is dealer discard
+    func calculateDiscardPoints() -> Points {
+        return  Points(first: 8000, second: 0)
+    }
 }
 
 class Points: NSObject {
@@ -30,19 +77,4 @@ class Points: NSObject {
         self.first = first
         self.second = second
     }
-    
-    class func calculatePoints(yaku: Yaku, winType: WinType) -> Points {
-        switch winType {
-        case .SelfPick:
-            switch yaku.fan {
-            case 5:
-                return Points(first: 4000, second: 2000)
-            default:
-                return Points()
-            }
-        case .Discard:
-            return Points(first: 8000, second: 0)
-        }
-    }
-
 }

@@ -26,21 +26,39 @@ class Player: NSObject {
         self.init(playerID: playerID, playerName: playerName, isDealer: isDealer, playerPoints: 25000)
     }
     
-    func winOnSelfDraw(points: Points) {
-        self.playerPoints += points.first
-        let otherPlayers = [Player]()
+    func win(targetPlayer: Player?, _ yaku: Yaku) {
+        let points = yaku.calculatePoints(self, targetPlayer: targetPlayer)
+        if targetPlayer {
+            self.playerPoints += points.first
+            targetPlayer!.playerPoints -= points.first
+        } else {
+            
+        }
     }
     
-    func winOnDiscard(targetPlayer: Player, points: Points) {
-        self.playerPoints += points.first
-        targetPlayer.playerPoints -= points.first
-    }
+//    func winOnSelfDraw(yaku: Yaku) {
+//        let points = yaku.calculatePointsWithPlayer(self, WithWinType: WinType.Discard)
+//        
+//        // まず自分が親かどうか。
+//        // 親だったら、
+////        self.playerPoints += points.first
+////        let otherPlayers = self.otherPlayers()
+////        for otherPlayer in otherPlayers {
+////            otherPlayer.playerPoints -= points.first
+////        }
+//    }
+//    
+//    func winOnDiscard(targetPlayer: Player?, _ yaku: Yaku) {
+//        let points = yaku.calculatePointsWithPlayer(self, WithWinType: WinType.Discard)
+//        
+//        
+//    }
     
     func otherPlayers() -> [Player] {
         let game =  gameManager.games[gameManager.currentGameIndex] as Game
         var allPlayers = game.players
         // let otherPlayers = allPlayers.removeAtIndex(1) as [Player]
         
-        return otherPlayers
+        return [Player]()
     }
 }

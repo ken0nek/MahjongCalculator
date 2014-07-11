@@ -37,7 +37,6 @@ class MainViewController: BaseViewController {
             Player(playerID: 2, playerName: "よし", isDealer: false),
             Player(playerID: 3, playerName: "でぃ", isDealer: false)]
         
-        
         gameManager.startGame(Game(players: players, startingPlayer: players[0]))
         let game = gameManager.games[gameManager.currentGameIndex] as Game
         
@@ -51,8 +50,7 @@ class MainViewController: BaseViewController {
         nameLabels += nameLabel3
         nameLabels += nameLabel4
         
-        let points: Points = Points.calculatePoints(Yaku(fan: 5, fu: 0), winType: WinType.Discard)
-        game.players[0].winOnDiscard(game.players[1], points: points)
+        game.players[0].win(game.players[1], Yaku(fan: 5, fu: 0))
         
         for pointLabel in pointLabels {
             let player = game.players[pointLabel.tag-Int(1)] as Player
