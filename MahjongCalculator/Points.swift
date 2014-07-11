@@ -1,4 +1,4 @@
-//
+ //
 //  Points.swift
 //  MahjongCalculator
 //
@@ -30,6 +30,11 @@ class Points: NSObject {
 struct Yaku {
     let fan: Int
     let fu: Int
+    var basePoints: Double {
+    get {
+        return 10.0
+    }
+    }
     
     init() {
         self.fan = 0
@@ -57,7 +62,9 @@ struct Yaku {
             }
         }
     }
-
+    
+    // basePoints
+    
     // is dealer self-pick
     func calculateDealerSelfPickPoints() -> Points {
         

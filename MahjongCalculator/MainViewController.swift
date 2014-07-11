@@ -31,11 +31,12 @@ class MainViewController: BaseViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        var players =
-            [Player(playerID: 0, playerName: "とみ", isDealer: true),
-            Player(playerID: 1, playerName: "ふく", isDealer: false),
-            Player(playerID: 2, playerName: "よし", isDealer: false),
-            Player(playerID: 3, playerName: "でぃ", isDealer: false)]
+        var players = [
+            Player(playerID: 0, playerName: "とみ", isDealer: true, feng: Feng.East),
+            Player(playerID: 1, playerName: "ふく", isDealer: false, feng: Feng.South),
+            Player(playerID: 2, playerName: "よし", isDealer: false, feng: Feng.West),
+            Player(playerID: 3, playerName: "でぃ", isDealer: false, feng: Feng.North)
+        ]
         
         gameManager.startGame(Game(players: players, startingPlayer: players[0]))
         let game = gameManager.games[gameManager.currentGameIndex] as Game
@@ -61,7 +62,7 @@ class MainViewController: BaseViewController {
         
         for nameLabel in nameLabels {
             let player = game.players[nameLabel.tag-Int(1)] as Player
-            nameLabel.text = player.playerName
+            nameLabel.text = player.feng.toString() + " " + player.playerName
             rotateLabel(nameLabel)
         }
         
@@ -81,6 +82,12 @@ class MainViewController: BaseViewController {
         let game = gameManager.games[gameManager.currentGameIndex] as Game
         game.goForward()
         gameLabel.text = game.round.toString() + game.hand.toString()
+        
+        for nameLabel in nameLabels {
+            let player = game.players[nameLabel.tag-Int(1)] as Player
+            nameLabel.text = player.feng.toString() + " " + player.playerName
+        }
+        
     }
     
     /*

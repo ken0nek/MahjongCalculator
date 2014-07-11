@@ -74,10 +74,16 @@ class Game: NSObject {
     }
     
     func goForward() {
-        if self.hand == Hand.Fourth {
-            self.round.next()
+        
+        for player in players {
+            player.feng.next()
         }
         
-        self.hand.next()
+        if hand == Hand.Fourth {
+            
+            round.next()
+        }
+        
+        hand.next()
     }
 }

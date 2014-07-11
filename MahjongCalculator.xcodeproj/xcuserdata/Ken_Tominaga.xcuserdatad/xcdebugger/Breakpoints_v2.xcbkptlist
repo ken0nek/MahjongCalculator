@@ -6,33 +6,33 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MahjongCalculator/Points.swift"
-            timestampString = "426768391.055135"
+            timestampString = "426775911.140978"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
-            landmarkName = "calculateDiscardPoints()"
-            landmarkType = "5">
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "Yaku"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MahjongCalculator/Points.swift"
-            timestampString = "426768425.165646"
+            timestampString = "426775911.140978"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
-            landmarkName = "calculateDealerDiscardPoints()"
-            landmarkType = "5">
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "Yaku"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
