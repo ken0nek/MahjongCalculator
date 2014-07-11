@@ -9,7 +9,7 @@
 import UIKit
 
 //enum WinType {
-//    case SelfPick, Discard
+//    case SelfDraw, Discard
 //}
 
 class Points: NSObject {
@@ -25,14 +25,39 @@ class Points: NSObject {
         self.first = first
         self.second = second
     }
+    
+    func finalizePoints() -> Points {
+        return Points(first: self.first.finalize(), second: self.second?.finalize())
+    }
+}
+ 
+extension Int {
+    func finalize() -> Int {
+        let numberValue = Float(self) /  powf(Float(10), Float((self.digits() - 2)))
+        let output = Int(ceil(numberValue)) * Int(powf(Float(10), Float((self.digits() - 2))))
+        return output
+    }
+    
+    // not use log
+    func digits() -> Int {
+        var count: Int = 0
+        var number: Int = self
+        while number > 0 {
+            number /= 10;
+            count++;
+        }
+        
+        return count
+    }
 }
 
 struct Yaku {
     let fan: Int
     let fu: Int
-    var basePoints: Double {
+    // 子のツモ和了が発生した時に、他の子が支払う点数
+    var basePoints: Int {
     get {
-        return 10.0
+        return Int(powf(Float(2), Float(fan + 2)) * Float(fu))
     }
     }
     
@@ -48,48 +73,50 @@ struct Yaku {
     
     func calculatePoints(winPlayer: Player, targetPlayer: Player?) -> Points {
         
+        var output = Points()
+        
         if winPlayer.isDealer {
             if targetPlayer {
-                return calculateDealerDiscardPoints()
+                output = calculateDealerDiscardPoints()
             } else {
-                return calculateDealerSelfPickPoints()
+                output = calculateDealerSelfDrawPoints()
             }
         } else {
             if targetPlayer {
-               return calculateDiscardPoints()
+                output = calculateDiscardPoints()
             } else {
-               return calculateSelfPickPoints()
+                output = calculateSelfDrawPoints()
             }
         }
+        
+        println("output : \n" + "\t first : \(output.first) \n" + "\t second : \(output.second)")
+        
+        return output
     }
     
     // basePoints
     
-    // is dealer self-pick
-    func calculateDealerSelfPickPoints() -> Points {
+    // is dealer self-draw
+    func calculateDealerSelfDrawPoints() -> Points {
         
-        // 条件分岐
-        return Points(first: 4000, second: 0)
+        return Points(first: self.basePoints * 2, second: 0).finalizePoints()
     }
     
     // is dealer discard
     func calculateDealerDiscardPoints() -> Points {
         
-        // 条件分岐
-        return Points(first: 12000, second: 0)
+        return Points(first: self.basePoints * 6, second: 0).finalizePoints()
     }
     
-    // not dealer self-pick
-    func calculateSelfPickPoints() -> Points {
+    // not dealer self-draw
+    func calculateSelfDrawPoints() -> Points {
         
-        // 条件分岐
-        return  Points(first: 4000, second: 2000)
+        return  Points(first: self.basePoints * 2, second: self.basePoints).finalizePoints()
     }
     
     // not dealer discard
     func calculateDiscardPoints() -> Points {
         
-        // 条件分岐
-        return  Points(first: 8000, second: 0)
+        return  Points(first: self.basePoints * 4, second: 0).finalizePoints()
     }
 }

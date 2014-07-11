@@ -57,7 +57,7 @@ class Player: NSObject {
     
     func win(targetPlayer: Player?, _ yaku: Yaku) {
         let points = yaku.calculatePoints(self, targetPlayer: targetPlayer)
-        if targetPlayer { // win on self-pick
+        if targetPlayer { // win on self-draw
             playerPoints += points.first
             targetPlayer!.playerPoints -= points.first
         } else {

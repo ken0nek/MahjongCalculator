@@ -31,6 +31,13 @@ class MainViewController: BaseViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+//        println(Int(1230).digits())
+//        println(Int(11213).finalize())
+//        
+//        let yaku: Yaku = Yaku(fan: 1, fu: 30)
+//        println(yaku.basePoints)
+        
         var players = [
             Player(playerID: 0, playerName: "とみ", isDealer: true, feng: Feng.East),
             Player(playerID: 1, playerName: "ふく", isDealer: false, feng: Feng.South),
@@ -51,8 +58,8 @@ class MainViewController: BaseViewController {
         nameLabels += nameLabel3
         nameLabels += nameLabel4
         
-        game.players[0].win(game.players[1], Yaku(fan: 5, fu: 0))
-        game.players[3].win(game.players[2], Yaku(fan: 5, fu: 0))
+        game.players[0].win(game.players[1], Yaku(fan: 1, fu: 30))
+        game.players[3].win(game.players[2], Yaku(fan: 4, fu: 25))
         
         for pointLabel in pointLabels {
             let player = game.players[pointLabel.tag-Int(1)] as Player
