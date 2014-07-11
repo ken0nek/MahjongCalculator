@@ -9,10 +9,13 @@
 /* Begin PBXBuildFile section */
 		4AC90F47196E2399004829BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC90F46196E2399004829BB /* AppDelegate.swift */; };
 		4AC90F4A196E2399004829BB /* MahjongCalculator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4AC90F48196E2399004829BB /* MahjongCalculator.xcdatamodeld */; };
-		4AC90F4C196E2399004829BB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC90F4B196E2399004829BB /* ViewController.swift */; };
 		4AC90F4F196E2399004829BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AC90F4D196E2399004829BB /* Main.storyboard */; };
 		4AC90F51196E2399004829BB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AC90F50196E2399004829BB /* Images.xcassets */; };
 		4AC90F5D196E239A004829BB /* MahjongCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC90F5C196E239A004829BB /* MahjongCalculatorTests.swift */; };
+		4AC90F67196E2454004829BB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC90F66196E2454004829BB /* MainViewController.swift */; };
+		4AC90F69196E4C37004829BB /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC90F68196E4C37004829BB /* GameManager.swift */; };
+		4AC90F6B196E4C48004829BB /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC90F6A196E4C48004829BB /* Player.swift */; };
+		4AC90F6D196E51C7004829BB /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC90F6C196E51C7004829BB /* Game.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,12 +33,15 @@
 		4AC90F45196E2399004829BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4AC90F46196E2399004829BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4AC90F49196E2399004829BB /* MahjongCalculator.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MahjongCalculator.xcdatamodel; sourceTree = "<group>"; };
-		4AC90F4B196E2399004829BB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4AC90F4E196E2399004829BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4AC90F50196E2399004829BB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4AC90F56196E239A004829BB /* MahjongCalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MahjongCalculatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AC90F5B196E239A004829BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4AC90F5C196E239A004829BB /* MahjongCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MahjongCalculatorTests.swift; sourceTree = "<group>"; };
+		4AC90F66196E2454004829BB /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		4AC90F68196E4C37004829BB /* GameManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
+		4AC90F6A196E4C48004829BB /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		4AC90F6C196E51C7004829BB /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,8 +84,11 @@
 			isa = PBXGroup;
 			children = (
 				4AC90F46196E2399004829BB /* AppDelegate.swift */,
-				4AC90F4B196E2399004829BB /* ViewController.swift */,
 				4AC90F4D196E2399004829BB /* Main.storyboard */,
+				4AC90F66196E2454004829BB /* MainViewController.swift */,
+				4AC90F68196E4C37004829BB /* GameManager.swift */,
+				4AC90F6A196E4C48004829BB /* Player.swift */,
+				4AC90F6C196E51C7004829BB /* Game.swift */,
 				4AC90F50196E2399004829BB /* Images.xcassets */,
 				4AC90F48196E2399004829BB /* MahjongCalculator.xcdatamodeld */,
 				4AC90F44196E2399004829BB /* Supporting Files */,
@@ -211,8 +220,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4AC90F4C196E2399004829BB /* ViewController.swift in Sources */,
+				4AC90F67196E2454004829BB /* MainViewController.swift in Sources */,
+				4AC90F6D196E51C7004829BB /* Game.swift in Sources */,
+				4AC90F69196E4C37004829BB /* GameManager.swift in Sources */,
 				4AC90F4A196E2399004829BB /* MahjongCalculator.xcdatamodeld in Sources */,
+				4AC90F6B196E4C48004829BB /* Player.swift in Sources */,
 				4AC90F47196E2399004829BB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -401,6 +413,7 @@
 				4AC90F62196E239A004829BB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4AC90F63196E239A004829BB /* Build configuration list for PBXNativeTarget "MahjongCalculatorTests" */ = {
 			isa = XCConfigurationList;
@@ -409,6 +422,7 @@
 				4AC90F65196E239A004829BB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
