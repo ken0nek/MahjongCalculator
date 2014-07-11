@@ -13,7 +13,7 @@ class GameManager: NSObject {
     var games: [Game] = []
     var currentGameIndex: Int = 0
     
-    class func sharedController() -> GameManager {
+    class func sharedManager() -> GameManager {
     struct Singleton {
         static let instance = GameManager()
         }

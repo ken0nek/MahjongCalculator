@@ -63,6 +63,30 @@
                                     <action selector="goForward" destination="vXZ-lx-hvc" eventType="touchUpInside" id="aaz-XB-iz5"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2X4-WX-uUD">
+                                <rect key="frame" x="124" y="364" width="73" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1a4-Ok-Hwi">
+                                <rect key="frame" x="125" y="180" width="73" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2p2-WN-x0Q">
+                                <rect key="frame" x="53" y="270" width="73" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tig-Y2-jPN">
+                                <rect key="frame" x="193" y="269" width="73" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -73,10 +97,14 @@
                     </simulatedScreenMetrics>
                     <connections>
                         <outlet property="gameLabel" destination="CHP-UI-wX1" id="zmL-Aw-7ij"/>
-                        <outlet property="label1" destination="5v5-zS-eZM" id="A01-Hc-pzz"/>
-                        <outlet property="label2" destination="iDD-xi-Zhe" id="Boc-k4-hDA"/>
-                        <outlet property="label3" destination="4hc-Fa-pSP" id="RhY-pj-Pl1"/>
-                        <outlet property="label4" destination="5Fo-US-MvU" id="cg1-nM-p7z"/>
+                        <outlet property="nameLabel1" destination="2X4-WX-uUD" id="yFw-9n-oW1"/>
+                        <outlet property="nameLabel2" destination="Tig-Y2-jPN" id="pLb-B4-NXh"/>
+                        <outlet property="nameLabel3" destination="1a4-Ok-Hwi" id="Mm0-jD-JfW"/>
+                        <outlet property="nameLabel4" destination="2p2-WN-x0Q" id="iXj-9d-trz"/>
+                        <outlet property="pointLabel1" destination="5v5-zS-eZM" id="GFB-Zr-o8M"/>
+                        <outlet property="pointLabel2" destination="iDD-xi-Zhe" id="h40-5v-3ug"/>
+                        <outlet property="pointLabel3" destination="4hc-Fa-pSP" id="si7-Mf-qZL"/>
+                        <outlet property="pointLabel4" destination="5Fo-US-MvU" id="2DN-YI-9L2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

@@ -10,14 +10,22 @@ import UIKit
 
 class MainViewController: BaseViewController {
     
-    @IBOutlet var label1: UILabel
-    @IBOutlet var label2: UILabel
-    @IBOutlet var label3: UILabel
-    @IBOutlet var label4: UILabel
-    var labels = [UILabel]()
-
+    @IBOutlet var pointLabel1: UILabel
+    @IBOutlet var pointLabel2: UILabel
+    @IBOutlet var pointLabel3: UILabel
+    @IBOutlet var pointLabel4: UILabel
+    
+    @IBOutlet var nameLabel1: UILabel
+    @IBOutlet var nameLabel2: UILabel
+    @IBOutlet var nameLabel3: UILabel
+    @IBOutlet var nameLabel4: UILabel
+    
+    var pointLabels = [UILabel]()
+    var nameLabels = [UILabel]()
+    var playerLabels = [[UILabel]]()
+    
     @IBOutlet var gameLabel: UILabel
-    let gameManager: GameManager = GameManager.sharedController()
+    let gameManager: GameManager = GameManager.sharedManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,15 +43,26 @@ class MainViewController: BaseViewController {
         
         gameLabel.text = game.round.toString() + game.hand.toString()
      
-        labels += label1
-        labels += label2
-        labels += label3
-        labels += label4
+        pointLabels += pointLabel1
+        pointLabels += pointLabel2
+        pointLabels += pointLabel3
+        pointLabels += pointLabel4
         
-        for label in labels {
-            let player = game.players[label.tag-Int(1)] as Player
-            label.text = "\(player.playerPoints)"
-            rotateLabel(label)
+        nameLabels += nameLabel1
+        nameLabels += nameLabel2
+        nameLabels += nameLabel3
+        nameLabels += nameLabel4
+        
+        for pointLabel in pointLabels {
+            let player = game.players[pointLabel.tag-Int(1)] as Player
+            pointLabel.text = "\(player.playerPoints)"
+            rotateLabel(pointLabel)
+        }
+        
+        for nameLabel in nameLabels {
+            let player = game.players[nameLabel.tag-Int(1)] as Player
+            nameLabel.text = player.playerName
+            rotateLabel(nameLabel)
         }
         
     }
