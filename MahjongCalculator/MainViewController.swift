@@ -51,6 +51,7 @@ class MainViewController: BaseViewController {
         nameLabels += nameLabel4
         
         game.players[0].win(game.players[1], Yaku(fan: 5, fu: 0))
+        game.players[3].win(game.players[2], Yaku(fan: 5, fu: 0))
         
         for pointLabel in pointLabels {
             let player = game.players[pointLabel.tag-Int(1)] as Player

@@ -13,10 +13,10 @@ enum Round {
     
     func toString() -> String {
         switch self {
-        case East: return "東"
-        case South: return "南"
-        case West: return "西"
-        case North: return "北"
+        case .East: return "東"
+        case .South: return "南"
+        case .West: return "西"
+        case .North: return "北"
         }
     }
     
@@ -39,10 +39,10 @@ enum Hand {
     
     func toString() -> String {
         switch self {
-        case First: return "一局"
-        case Second: return "二局"
-        case Third: return "三局"
-        case Fourth: return "四局"
+        case .First: return "一局"
+        case .Second: return "二局"
+        case .Third: return "三局"
+        case .Fourth: return "四局"
         }
     }
     

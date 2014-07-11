@@ -18,7 +18,7 @@ class Player: NSObject {
     init(playerID: Int, playerName: String, isDealer: Bool, playerPoints: Int) {
         self.playerID = playerID
         self.playerName = playerName
-        self.isDealer = false
+        self.isDealer = isDealer
         self.playerPoints = playerPoints
     }
     

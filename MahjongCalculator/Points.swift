@@ -12,6 +12,21 @@ import UIKit
 //    case SelfPick, Discard
 //}
 
+class Points: NSObject {
+    let first: Int
+    let second: Int?
+    
+    init() {
+        self.first = 0
+        self.second = 0
+    }
+    
+    init(first: Int, second: Int?) {
+        self.first = first
+        self.second = second
+    }
+}
+
 struct Yaku {
     let fan: Int
     let fu: Int
@@ -45,36 +60,29 @@ struct Yaku {
 
     // is dealer self-pick
     func calculateDealerSelfPickPoints() -> Points {
+        
+        // 条件分岐
         return Points(first: 4000, second: 0)
     }
     
     // is dealer discard
     func calculateDealerDiscardPoints() -> Points {
+        
+        // 条件分岐
         return Points(first: 12000, second: 0)
     }
     
     // not dealer self-pick
     func calculateSelfPickPoints() -> Points {
+        
+        // 条件分岐
         return  Points(first: 4000, second: 2000)
     }
     
-    // is dealer discard
+    // not dealer discard
     func calculateDiscardPoints() -> Points {
+        
+        // 条件分岐
         return  Points(first: 8000, second: 0)
-    }
-}
-
-class Points: NSObject {
-    let first: Int
-    let second: Int?
-    
-    init() {
-        self.first = 0
-        self.second = 0
-    }
-    
-    init(first: Int, second: Int?) {
-        self.first = first
-        self.second = second
     }
 }
