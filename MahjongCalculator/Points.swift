@@ -21,13 +21,13 @@ class Points: NSObject {
         self.second = 0
     }
     
-    init(first: Int, second: Int?) {
+    init(_ first: Int, _ second: Int?) {
         self.first = first
         self.second = second
     }
     
     func finalizePoints() -> Points {
-        return Points(first: self.first.finalize(), second: self.second?.finalize())
+        return Points(self.first.finalize(), self.second?.finalize())
     }
     
     func description() -> String {
@@ -36,11 +36,6 @@ class Points: NSObject {
 }
  
 extension Int {
-//    func finalize() -> Int {
-//        let numberValue = Float(self) /  powf(Float(10), Float((digits() - 3)))
-//        let output = Int(ceil(numberValue)) * Int(powf(Float(10), Float((digits() - 3))))
-//        return output
-//    }
     
     func finalize() -> Int {
         if(self % 100 == 0){
@@ -49,17 +44,6 @@ extension Int {
             return ((self / 100) + 1) * 100
         }
     }
-    
-//    func digits() -> Int {
-//        var count: Int = 0
-//        var number: Int = self
-//        while number > 0 {
-//            number /= 10;
-//            count++;
-//        }
-//        
-//        return count
-//    }
 }
 
 struct Yaku {
@@ -110,24 +94,72 @@ struct Yaku {
     // is dealer self-draw
     func calculateDealerSelfDrawPoints() -> Points {
         
-        return Points(first: basePoints * 2, second: nil).finalizePoints()
+        if (fan == 3 && fu >= 70) ||  (fan == 4 && fu >= 40) || fan == 5 {
+            return Points(4000, nil)
+        } else if fan == 6 || fan == 7 {
+            return Points(6000, nil)
+        } else if fan == 8 || fan == 9 || fan == 10 {
+            return Points(8000, nil)
+        } else if fan == 11 || fan == 12 {
+            return Points(12000, nil)
+        } else if fan >= 13 {
+            return Points(16000, nil)
+        } else {
+            return Points(basePoints * 2, nil).finalizePoints()
+        }
     }
     
     // is dealer discard
     func calculateDealerDiscardPoints() -> Points {
         
-        return Points(first: basePoints * 6, second: nil).finalizePoints()
+        if (fan == 3 && fu >= 70) ||  (fan == 4 && fu >= 40) || fan == 5 {
+            return Points(12000, nil)
+        } else if fan == 6 || fan == 7 {
+            return Points(18000, nil)
+        } else if fan == 8 || fan == 9 || fan == 10 {
+            return Points(24000, nil)
+        } else if fan == 11 || fan == 12 {
+            return Points(36000, nil)
+        } else if fan >= 13 {
+            return Points(48000, nil)
+        } else {
+            return Points(basePoints * 6, nil).finalizePoints()
+        }
     }
     
     // not dealer self-draw
     func calculateSelfDrawPoints() -> Points {
         
-        return  Points(first: basePoints * 2, second: basePoints).finalizePoints()
+        if (fan == 3 && fu >= 70) ||  (fan == 4 && fu >= 40) || fan == 5 {
+            return Points(4000, 2000)
+        } else if fan == 6 || fan == 7 {
+            return Points(6000, 3000)
+        } else if fan == 8 || fan == 9 || fan == 10 {
+            return Points(8000, 4000)
+        } else if fan == 11 || fan == 12 {
+            return Points(12000, 6000)
+        } else if fan >= 13 {
+            return Points(16000, 8000)
+        } else {
+            return Points(basePoints * 2, basePoints).finalizePoints()
+        }
     }
     
     // not dealer discard
     func calculateDiscardPoints() -> Points {
         
-        return  Points(first: basePoints * 4, second: nil).finalizePoints()
+        if (fan == 3 && fu >= 70) ||  (fan == 4 && fu >= 40) || fan == 5 {
+            return Points(8000, nil)
+        } else if fan == 6 || fan == 7 {
+            return Points(12000, nil)
+        } else if fan == 8 || fan == 9 || fan == 10 {
+            return Points(16000, nil)
+        } else if fan == 11 || fan == 12 {
+            return Points(24000, nil)
+        } else if fan >= 13 {
+            return Points(36000, nil)
+        } else {
+            return  Points(basePoints * 4, nil).finalizePoints()
+        }
     }
 }

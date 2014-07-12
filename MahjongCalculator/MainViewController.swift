@@ -57,7 +57,7 @@ class MainViewController: BaseViewController {
         nameLabels += nameLabel3
         nameLabels += nameLabel4
         
-        game.players[0].win(nil, Yaku(fan: 2, fu: 30))
+        game.players[0].win(nil, Yaku(fan: 3, fu: 70))
         game.players[3].win(nil, Yaku(fan: 4, fu: 30))
         
         for pointLabel in pointLabels {
