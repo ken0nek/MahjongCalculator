@@ -63,12 +63,14 @@ enum Hand {
 class Game: NSObject {
     var round: Round
     var hand: Hand
+    var honba: Int
     var players: [Player]
     var startingPlayer: Player
     
     init(players: [Player], startingPlayer: Player) {
         self.round = .East
         self.hand = .First
+        self.honba = 0
         self.players = players
         self.startingPlayer = startingPlayer
     }

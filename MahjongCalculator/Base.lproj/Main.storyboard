@@ -132,6 +132,30 @@
                                     <action selector="didPressBackButton" destination="ZWR-p8-g4q" eventType="touchUpInside" id="eYi-qr-lZE"/>
                                 </connections>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="nDc-GK-g0u">
+                                <rect key="frame" x="7" y="84" width="306" height="29"/>
+                                <segments>
+                                    <segment title="1"/>
+                                    <segment title="2"/>
+                                    <segment title="3"/>
+                                    <segment title="4"/>
+                                    <segment title="満貫"/>
+                                    <segment title="跳満"/>
+                                    <segment title="倍満"/>
+                                    <segment title="3倍満"/>
+                                    <segment title="役満"/>
+                                </segments>
+                            </segmentedControl>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="YVA-px-2nI">
+                                <rect key="frame" x="118" y="31" width="107" height="29"/>
+                                <segments>
+                                    <segment title="　ツモ"/>
+                                    <segment title="ロン"/>
+                                </segments>
+                            </segmentedControl>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sAa-0V-n1V">
+                                <rect key="frame" x="0.0" y="148" width="320" height="162"/>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>

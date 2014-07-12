@@ -29,26 +29,37 @@ class Points: NSObject {
     func finalizePoints() -> Points {
         return Points(first: self.first.finalize(), second: self.second?.finalize())
     }
+    
+    func description() -> String {
+        return ""
+    }
 }
  
 extension Int {
+//    func finalize() -> Int {
+//        let numberValue = Float(self) /  powf(Float(10), Float((digits() - 3)))
+//        let output = Int(ceil(numberValue)) * Int(powf(Float(10), Float((digits() - 3))))
+//        return output
+//    }
+    
     func finalize() -> Int {
-        let numberValue = Float(self) /  powf(Float(10), Float((self.digits() - 2)))
-        let output = Int(ceil(numberValue)) * Int(powf(Float(10), Float((self.digits() - 2))))
-        return output
+        if(self % 100 == 0){
+            return self
+        }else{
+            return ((self / 100) + 1) * 100
+        }
     }
     
-    // not use log
-    func digits() -> Int {
-        var count: Int = 0
-        var number: Int = self
-        while number > 0 {
-            number /= 10;
-            count++;
-        }
-        
-        return count
-    }
+//    func digits() -> Int {
+//        var count: Int = 0
+//        var number: Int = self
+//        while number > 0 {
+//            number /= 10;
+//            count++;
+//        }
+//        
+//        return count
+//    }
 }
 
 struct Yaku {
@@ -99,24 +110,24 @@ struct Yaku {
     // is dealer self-draw
     func calculateDealerSelfDrawPoints() -> Points {
         
-        return Points(first: self.basePoints * 2, second: 0).finalizePoints()
+        return Points(first: basePoints * 2, second: nil).finalizePoints()
     }
     
     // is dealer discard
     func calculateDealerDiscardPoints() -> Points {
         
-        return Points(first: self.basePoints * 6, second: 0).finalizePoints()
+        return Points(first: basePoints * 6, second: nil).finalizePoints()
     }
     
     // not dealer self-draw
     func calculateSelfDrawPoints() -> Points {
         
-        return  Points(first: self.basePoints * 2, second: self.basePoints).finalizePoints()
+        return  Points(first: basePoints * 2, second: basePoints).finalizePoints()
     }
     
     // not dealer discard
     func calculateDiscardPoints() -> Points {
         
-        return  Points(first: self.basePoints * 4, second: 0).finalizePoints()
+        return  Points(first: basePoints * 4, second: nil).finalizePoints()
     }
 }

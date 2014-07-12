@@ -32,9 +32,8 @@ class MainViewController: BaseViewController {
 
         // Do any additional setup after loading the view.
         
-//        println(Int(1230).digits())
-//        println(Int(11213).finalize())
-//        
+        // println(Int(11213).finalize())
+//
 //        let yaku: Yaku = Yaku(fan: 1, fu: 30)
 //        println(yaku.basePoints)
         
@@ -58,17 +57,17 @@ class MainViewController: BaseViewController {
         nameLabels += nameLabel3
         nameLabels += nameLabel4
         
-        game.players[0].win(game.players[1], Yaku(fan: 1, fu: 30))
-        game.players[3].win(game.players[2], Yaku(fan: 4, fu: 25))
+        game.players[0].win(nil, Yaku(fan: 2, fu: 30))
+        game.players[3].win(nil, Yaku(fan: 4, fu: 30))
         
         for pointLabel in pointLabels {
-            let player = game.players[pointLabel.tag-Int(1)] as Player
+            let player = game.players[pointLabel.tag-1] as Player
             pointLabel.text = "\(player.playerPoints)"
             rotateLabel(pointLabel)
         }
         
         for nameLabel in nameLabels {
-            let player = game.players[nameLabel.tag-Int(1)] as Player
+            let player = game.players[nameLabel.tag-1] as Player
             nameLabel.text = player.feng.toString() + " " + player.playerName
             rotateLabel(nameLabel)
         }
@@ -91,7 +90,7 @@ class MainViewController: BaseViewController {
         gameLabel.text = game.round.toString() + game.hand.toString()
         
         for nameLabel in nameLabels {
-            let player = game.players[nameLabel.tag-Int(1)] as Player
+            let player = game.players[nameLabel.tag-1] as Player
             nameLabel.text = player.feng.toString() + " " + player.playerName
         }
         

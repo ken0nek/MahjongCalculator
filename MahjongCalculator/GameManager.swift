@@ -27,6 +27,10 @@ class GameManager: NSObject {
         games += game
     }
     
+    func continueGame(game: Game) {
+        game.honba++
+    }
+    
     func nextGame(game: Game) {
         currentGameIndex++
         startGame(game)
