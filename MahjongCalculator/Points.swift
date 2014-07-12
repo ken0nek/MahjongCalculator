@@ -27,11 +27,22 @@ class Points: NSObject {
     }
     
     func finalizePoints() -> Points {
-        return Points(self.first.finalize(), self.second?.finalize())
+        return Points(first.finalize(), second?.finalize())
     }
     
-    func description() -> String {
-        return ""
+    func description() {
+        println("Points : \n" + "\t first : \(first) \n" + "\t second : \(second) \n" + "\t sum : \(sum())")
+    }
+    
+    func sum() -> Int {
+        
+        var sumValue: Int = first
+        
+        if second {
+            sumValue += second! * 2
+        }
+        
+        return sumValue
     }
 }
  
@@ -84,7 +95,7 @@ struct Yaku {
             }
         }
         
-        println("output : \n" + "\t first : \(output.first) \n" + "\t second : \(output.second)")
+        output.description
         
         return output
     }
@@ -159,7 +170,7 @@ struct Yaku {
         } else if fan >= 13 {
             return Points(36000, nil)
         } else {
-            return  Points(basePoints * 4, nil).finalizePoints()
+            return Points(basePoints * 4, nil).finalizePoints()
         }
     }
 }

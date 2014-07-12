@@ -86,7 +86,7 @@ class MainViewController: BaseViewController {
     
     @IBAction func goForward() {
         let game = gameManager.games[gameManager.currentGameIndex] as Game
-        game.goForward()
+        game.forwardGame()
         gameLabel.text = game.round.toString() + game.hand.toString()
         
         for nameLabel in nameLabels {
