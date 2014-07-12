@@ -60,22 +60,67 @@ enum Hand {
     }
 }
 
+enum Honba {
+    case Zeroth, First, Second, Third, Fourth, Fifth, Sixth, Seventh, Eighth
+    
+    func toString() -> String {
+        switch self {
+        case .Zeroth: return ""
+        case .First: return "一本場"
+        case .Second: return "二本場"
+        case .Third: return "三本場"
+        case .Fourth: return "四本場"
+        case .Fifth: return "五本場"
+        case .Sixth: return "六本場"
+        case .Seventh: return "七本場"
+        case .Eighth: return "八本場"
+        }
+    }
+    
+    mutating func next()  {
+        switch self {
+        case .Zeroth:
+            self = First
+        case .First:
+            self = Second
+        case .Second:
+            self = Third
+        case .Third:
+            self = Fourth
+        case .Fourth:
+            self = Fifth
+        case .Fifth:
+            self = Sixth
+        case .Sixth:
+            self = Seventh
+        case .Seventh:
+            self = Eighth
+        case .Eighth:
+            self = Zeroth
+        }
+    }
+    
+    mutating func reset() {
+        self = Zeroth
+    }
+}
+
 class Game: NSObject {
     var round: Round
     var hand: Hand
-    var honba: Int
+    var honba: Honba
     var players: [Player]
     var startingPlayer: Player
     
     init(players: [Player], startingPlayer: Player) {
         self.round = .East
         self.hand = .First
-        self.honba = 0
+        self.honba = .First
         self.players = players
         self.startingPlayer = startingPlayer
     }
     
-    func goForward() {
+    func forwardGame() {
         
         for player in players {
             player.feng.next()
@@ -87,5 +132,11 @@ class Game: NSObject {
         }
         
         hand.next()
+        
+        honba.reset()
+    }
+    
+    func continueGame() {
+        honba.next()
     }
 }

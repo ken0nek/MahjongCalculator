@@ -61,7 +61,7 @@ struct Yaku {
         self.fu = 0
     }
     
-    init(fan: Int, fu: Int) {
+    init(_ fan: Int, _ fu: Int) {
         self.fan = fan
         self.fu = fu
     }

@@ -34,7 +34,7 @@ class MainViewController: BaseViewController {
         
         // println(Int(11213).finalize())
 //
-//        let yaku: Yaku = Yaku(fan: 1, fu: 30)
+//        let yaku: Yaku = Yaku(1, 30)
 //        println(yaku.basePoints)
         
         var players = [
@@ -57,8 +57,8 @@ class MainViewController: BaseViewController {
         nameLabels += nameLabel3
         nameLabels += nameLabel4
         
-        game.players[0].win(nil, Yaku(fan: 3, fu: 70))
-        game.players[3].win(nil, Yaku(fan: 4, fu: 30))
+        game.players[0].win(nil, Yaku(3, 70))
+        game.players[3].win(nil, Yaku(4, 30))
         
         for pointLabel in pointLabels {
             let player = game.players[pointLabel.tag-1] as Player
