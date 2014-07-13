@@ -58,9 +58,6 @@ class MainViewController: BaseViewController {
         nameLabels += nameLabel3
         nameLabels += nameLabel4
         
-        game.deal(fukkun, nil, Yaku(1, 30))
-        //game.deal(fukudy, nil, Yaku(5))
-        
         for pointLabel in pointLabels {
             let player = game.players[pointLabel.tag-1] as Player
             pointLabel.text = "\(player.playerPoints)"
@@ -79,6 +76,17 @@ class MainViewController: BaseViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(animated: Bool)  {
+        super.viewWillAppear(animated)
+        
+        let game = gameManager.games[gameManager.currentGameIndex] as Game
+        
+        for pointLabel in pointLabels {
+            let player = game.players[pointLabel.tag - 1] as Player
+            pointLabel.text = "\(player.playerPoints)"
+        }
     }
     
     func rotateLabel(var label: UILabel) {

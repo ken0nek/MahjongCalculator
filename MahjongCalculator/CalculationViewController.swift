@@ -8,27 +8,15 @@
 
 import UIKit
 
-//enum Fu {
-//    case 0, 20, 25, 30, 40, 50, 60, 70, 80, 90, 100, 110
-//    
-//    func aaa() {
-//        
-//    }
-//}
-//
-//enum Fan {
-//    
-//}
-
 class CalculationViewController: BaseViewController {
 
     let gameManager = GameManager.sharedManager()
     
-    let fanArray = ["0", "1", "2", "3", "4", "満貫", "跳満", "倍満", "3倍満", "役満"]
-    let fuArray = ["0", "20", "25", "30", "40", "50", "60", "70", "80", "90", "100", "110"]
+    let fanArray = ["1", "2", "3", "4", "満貫", "跳満", "倍満", "3倍満", "役満"]
+    let fuArray = ["20", "25", "30", "40", "50", "60", "70", "80", "90", "100", "110"]
     
-    var fan: Int = 0
-    var fu: Int = 0
+    var fan: Int = 1
+    var fu: Int = 20
     
     @IBOutlet var fanStepper: UIStepper
     @IBOutlet var fuStepper: UIStepper
@@ -36,11 +24,26 @@ class CalculationViewController: BaseViewController {
     @IBOutlet var fanLabel: UILabel
     @IBOutlet var fuLabel: UILabel
     
+    // @IBOutlet var winTypeSegment: UISegmentedControl
+    
+    @IBOutlet var winPlayerSegment: UISegmentedControl
+    @IBOutlet var targetPlayerSegment: UISegmentedControl
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
+    
+        fanLabel.text = fanArray[0]
+        fanStepper.maximumValue = CGFloat(fanArray.count) - 1
+        
+        fuLabel.text = fuArray[0]
+        fuStepper.maximumValue = CGFloat(fuArray.count) - 1
+        
+        let game = gameManager.games[gameManager.currentGameIndex] as Game
+        setPlayersName(winPlayerSegment, game.players)
+        
+        controlTargetPlayerSegmentTitle(winPlayerSegment)
     }
 
     override func didReceiveMemoryWarning() {
@@ -53,18 +56,71 @@ class CalculationViewController: BaseViewController {
     }
 
     @IBAction func didPressRegisterButton() {
+        let game = gameManager.games[gameManager.currentGameIndex] as Game
+        
+        let winPlayer = game.players[winPlayerSegment.selectedSegmentIndex] as Player
+        let targetPlayer = game.players[targetPlayerSegment.selectedSegmentIndex] as Player?
+        let yaku = Yaku(fan, fu)
+        
+        game.deal(winPlayer, targetPlayer, yaku)
+        
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 
     @IBAction func didPressStepper(stepper: UIStepper) {
         
-        // min, max
+        let index = Int(CGFloat(stepper.value))
+        println(index)
         
         if stepper.tag == 1 {
-            fanLabel.text = fanArray[Int(Float(stepper.value))]
+            fanLabel.text = fanArray[index]
+            
+            switch index {
+            case 6: fan = 8
+            case 7: fan = 11
+            case 8: fan = 13
+            default:
+                fan = index + 1
+            }
+            
+            if index > 3 {
+                fuStepper.alpha = 0
+                fuLabel.alpha = 0
+            } else {
+                fuStepper.alpha = 1
+                fuLabel.alpha = 1
+            }
         } else {
-            fuLabel.text = fuArray[Int(Float(stepper.value))]
+            fuLabel.text = fuArray[index]
+            fu = fuArray[index].toInt()!
         }
+        
+        println("fan : " + "\(fan)")
+        println("fu : " + "\(fu)")
+        
+    }
+    
+    func setPlayersName(segment: UISegmentedControl, _ players: [Player]) {
+        for var i: Int = 0; i < players.count; i++ {
+            segment.setTitle(players[i].playerName, forSegmentAtIndex: i)
+        }
+    }
+    
+    @IBAction func controlTargetPlayerSegmentAlpha(segment: UISegmentedControl) {
+        if segment.selectedSegmentIndex == 1 {
+            targetPlayerSegment.alpha = 0
+        } else {
+            targetPlayerSegment.alpha = 1
+        }
+    }
+    
+    @IBAction func controlTargetPlayerSegmentTitle(segment: UISegmentedControl) {
+        
+        let game = gameManager.games[gameManager.currentGameIndex] as Game
+        var otherPlayers = game.players
+        otherPlayers.removeAtIndex(winPlayerSegment.selectedSegmentIndex)
+        
+        setPlayersName(targetPlayerSegment, otherPlayers)
     }
     
     /*
