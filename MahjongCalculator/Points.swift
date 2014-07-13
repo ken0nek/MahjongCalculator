@@ -8,10 +8,6 @@
 
 import UIKit
 
-//enum WinType {
-//    case SelfDraw, Discard
-//}
-
 class Points: NSObject {
     let first: Int
     let second: Int?
@@ -124,7 +120,7 @@ class Yaku {
         } else if fan >= 13 {
             return Points(16000, 16000)
         } else {
-            return Points(basePoints * 2, nil).finalizePoints()
+            return Points(basePoints * 2, basePoints * 2).finalizePoints()
         }
     }
     
@@ -148,20 +144,6 @@ class Yaku {
     
     // not dealer self-draw
     func calculateSelfDrawPoints() -> Points {
-        
-//        if (fan == 3 && fu >= 70) ||  (fan == 4 && fu >= 40) || fan == 5 {
-//            return Points(4000, 2000)
-//        } else if fan == 6 || fan == 7 {
-//            return Points(6000, 3000)
-//        } else if fan == 8 || fan == 9 || fan == 10 {
-//            return Points(8000, 4000)
-//        } else if fan == 11 || fan == 12 {
-//            return Points(12000, 6000)
-//        } else if fan >= 13 {
-//            return Points(16000, 8000)
-//        } else {
-//            return Points(basePoints * 2, basePoints).finalizePoints()
-//        }
         
         
         if (fan == 3 && fu >= 70) ||  (fan == 4 && fu >= 40) || fan == 5 {

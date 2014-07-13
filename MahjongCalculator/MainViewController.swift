@@ -58,7 +58,7 @@ class MainViewController: BaseViewController {
         nameLabels += nameLabel3
         nameLabels += nameLabel4
         
-        game.deal(tommy, nil, Yaku(5))
+        game.deal(fukkun, nil, Yaku(1, 30))
         //game.deal(fukudy, nil, Yaku(5))
         
         for pointLabel in pointLabels {
