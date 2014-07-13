@@ -25,7 +25,8 @@ class MainViewController: BaseViewController {
     var playerLabels = [[UILabel]]()
     
     @IBOutlet var gameLabel: UILabel
-    let gameManager: GameManager = GameManager.sharedManager()
+    let gameManager = GameManager.sharedManager()
+    // let game = GameManager.sharedManager().games[GameManager.sharedManager().currentGameIndex]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,12 +38,12 @@ class MainViewController: BaseViewController {
 //        let yaku: Yaku = Yaku(1, 30)
 //        println(yaku.basePoints)
         
-        var players = [
-            Player(playerID: 0, playerName: "とみ", isDealer: true, feng: Feng.East),
-            Player(playerID: 1, playerName: "ふく", isDealer: false, feng: Feng.South),
-            Player(playerID: 2, playerName: "よし", isDealer: false, feng: Feng.West),
-            Player(playerID: 3, playerName: "でぃ", isDealer: false, feng: Feng.North)
-        ]
+        let tommy = Player(playerID: 0, playerName: "とみ", isDealer: true, feng: Feng.East)
+        let fukkun = Player(playerID: 1, playerName: "ふく", isDealer: false, feng: Feng.South)
+        let yoshi = Player(playerID: 2, playerName: "よし", isDealer: false, feng: Feng.West)
+        let fukudy = Player(playerID: 3, playerName: "でぃ", isDealer: false, feng: Feng.North)
+        
+        var players = [tommy, fukkun, yoshi, fukudy]
         
         gameManager.startGame(Game(players: players, startingPlayer: players[0]))
         let game = gameManager.games[gameManager.currentGameIndex] as Game
@@ -57,8 +58,8 @@ class MainViewController: BaseViewController {
         nameLabels += nameLabel3
         nameLabels += nameLabel4
         
-        game.players[0].win(nil, Yaku(3, 70))
-        game.players[3].win(nil, Yaku(4, 30))
+        game.deal(tommy, nil, Yaku(5))
+        //game.deal(fukudy, nil, Yaku(5))
         
         for pointLabel in pointLabels {
             let player = game.players[pointLabel.tag-1] as Player

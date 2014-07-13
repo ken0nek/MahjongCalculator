@@ -15,6 +15,20 @@ import UIKit
 class Points: NSObject {
     let first: Int
     let second: Int?
+    var sum: Int {
+    get {
+        var sumValue: Int = 0
+        
+        if second {
+            sumValue = second!
+            sumValue += first * 2
+        } else {
+            sumValue = first
+        }
+        
+        return sumValue
+    }
+    }
     
     init() {
         self.first = 0
@@ -31,39 +45,29 @@ class Points: NSObject {
     }
     
     func description() {
-        println("Points : \n" + "\t first : \(first) \n" + "\t second : \(second) \n" + "\t sum : \(sum())")
-    }
-    
-    func sum() -> Int {
-        
-        var sumValue: Int = first
-        
-        if second {
-            sumValue += second! * 2
-        }
-        
-        return sumValue
+        println("Points : \n" + "\t first : \(first) \n" + "\t second : \(second) \n" + "\t sum : \(sum)")
     }
 }
  
 extension Int {
     
     func finalize() -> Int {
-        if(self % 100 == 0){
+        if self % 100 == 0 {
             return self
-        }else{
+        } else {
             return ((self / 100) + 1) * 100
         }
     }
 }
 
-struct Yaku {
+class Yaku {
     let fan: Int
-    let fu: Int
+    let fu: Int?
+    
     // 子のツモ和了が発生した時に、他の子が支払う点数
     var basePoints: Int {
     get {
-        return Int(powf(Float(2), Float(fan + 2)) * Float(fu))
+        return Int(powf(Float(2), Float(fan + 2)) * Float(fu!))
     }
     }
     
@@ -72,12 +76,16 @@ struct Yaku {
         self.fu = 0
     }
     
-    init(_ fan: Int, _ fu: Int) {
+    init(_ fan: Int, _ fu: Int?) {
         self.fan = fan
         self.fu = fu
     }
     
-    func calculatePoints(winPlayer: Player, targetPlayer: Player?) -> Points {
+    convenience init(_ fan: Int) {
+        self.init(fan, nil)
+    }
+    
+    func calculatePoints(winPlayer: Player, _ targetPlayer: Player?) -> Points {
         
         var output = Points()
         
@@ -106,15 +114,15 @@ struct Yaku {
     func calculateDealerSelfDrawPoints() -> Points {
         
         if (fan == 3 && fu >= 70) ||  (fan == 4 && fu >= 40) || fan == 5 {
-            return Points(4000, nil)
+            return Points(4000, 4000)
         } else if fan == 6 || fan == 7 {
-            return Points(6000, nil)
+            return Points(6000, 6000)
         } else if fan == 8 || fan == 9 || fan == 10 {
-            return Points(8000, nil)
+            return Points(8000, 8000)
         } else if fan == 11 || fan == 12 {
-            return Points(12000, nil)
+            return Points(12000, 12000)
         } else if fan >= 13 {
-            return Points(16000, nil)
+            return Points(16000, 16000)
         } else {
             return Points(basePoints * 2, nil).finalizePoints()
         }
@@ -141,18 +149,33 @@ struct Yaku {
     // not dealer self-draw
     func calculateSelfDrawPoints() -> Points {
         
+//        if (fan == 3 && fu >= 70) ||  (fan == 4 && fu >= 40) || fan == 5 {
+//            return Points(4000, 2000)
+//        } else if fan == 6 || fan == 7 {
+//            return Points(6000, 3000)
+//        } else if fan == 8 || fan == 9 || fan == 10 {
+//            return Points(8000, 4000)
+//        } else if fan == 11 || fan == 12 {
+//            return Points(12000, 6000)
+//        } else if fan >= 13 {
+//            return Points(16000, 8000)
+//        } else {
+//            return Points(basePoints * 2, basePoints).finalizePoints()
+//        }
+        
+        
         if (fan == 3 && fu >= 70) ||  (fan == 4 && fu >= 40) || fan == 5 {
-            return Points(4000, 2000)
+            return Points(2000, 4000)
         } else if fan == 6 || fan == 7 {
-            return Points(6000, 3000)
+            return Points(3000, 6000)
         } else if fan == 8 || fan == 9 || fan == 10 {
-            return Points(8000, 4000)
+            return Points(4000, 8000)
         } else if fan == 11 || fan == 12 {
-            return Points(12000, 6000)
+            return Points(6000, 12000)
         } else if fan >= 13 {
-            return Points(16000, 8000)
+            return Points(8000, 16000)
         } else {
-            return Points(basePoints * 2, basePoints).finalizePoints()
+            return Points(basePoints, basePoints * 2).finalizePoints()
         }
     }
     

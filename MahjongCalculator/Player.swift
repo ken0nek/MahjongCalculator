@@ -55,39 +55,4 @@ class Player: NSObject {
         self.init(playerID: playerID, playerName: playerName, isDealer: isDealer, playerPoints: 25000, feng: feng)
     }
     
-    func win(targetPlayer: Player?, _ yaku: Yaku) {
-        let points = yaku.calculatePoints(self, targetPlayer: targetPlayer)
-        if targetPlayer { // win on discard
-            playerPoints += points.first
-            targetPlayer!.playerPoints -= points.first
-        } else { // win on self-draw
-            
-        }
-    }
-    
-    func winOnSelfDraw(yaku: Yaku) {
-       
-        
-        // まず自分が親かどうか。
-        // 親だったら、
-//        self.playerPoints += points.first
-//        let otherPlayers = self.otherPlayers()
-//        for otherPlayer in otherPlayers {
-//            otherPlayer.playerPoints -= points.first
-//        }
-    }
-    
-    func winOnDiscard(targetPlayer: Player?, _ yaku: Yaku) {
-        
-        
-        
-    }
-    
-//    func otherPlayers() -> [Player] {
-//        let game =  gameManager.games[gameManager.currentGameIndex] as Game
-//        var allPlayers = game.players
-//        // let otherPlayers = allPlayers.removeAtIndex(1) as [Player]
-//        
-//        return [Player]()
-//    }
 }

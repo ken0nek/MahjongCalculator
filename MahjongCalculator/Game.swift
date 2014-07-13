@@ -120,6 +120,34 @@ class Game: NSObject {
         self.startingPlayer = startingPlayer
     }
     
+    func deal(winPlayer:Player, _ targetPlayer: Player?, _ yaku: Yaku) {
+        let points = yaku.calculatePoints(winPlayer, targetPlayer)
+        if targetPlayer { // win on discard
+            
+            winPlayer.playerPoints += points.first
+            targetPlayer!.playerPoints -= points.first
+        
+        } else { // win on self-draw
+            
+            if winPlayer.isDealer {
+                winPlayer.playerPoints += points.second!
+            } else {
+                winPlayer.playerPoints += points.first
+            }
+            
+            for player in players {
+                if player.isDealer {
+                    player.playerPoints -= points.second!
+                } else {
+                    player.playerPoints -= points.first
+                }
+            }
+            
+            winPlayer.playerPoints += points.sum
+            
+        }
+    }
+    
     func forwardGame() {
         
         for player in players {
