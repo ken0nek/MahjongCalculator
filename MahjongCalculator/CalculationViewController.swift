@@ -24,7 +24,7 @@ class CalculationViewController: BaseViewController {
     @IBOutlet var fanLabel: UILabel
     @IBOutlet var fuLabel: UILabel
     
-    // @IBOutlet var winTypeSegment: UISegmentedControl
+    @IBOutlet var winTypeSegment: UISegmentedControl
     
     @IBOutlet var winPlayerSegment: UISegmentedControl
     @IBOutlet var targetPlayerSegment: UISegmentedControl
@@ -59,7 +59,15 @@ class CalculationViewController: BaseViewController {
         let game = gameManager.games[gameManager.currentGameIndex] as Game
         
         let winPlayer = game.players[winPlayerSegment.selectedSegmentIndex] as Player
-        let targetPlayer = game.players[targetPlayerSegment.selectedSegmentIndex] as Player?
+        
+        
+        var targetPlayer: Player?
+        if winTypeSegment.selectedSegmentIndex == 1 {
+            targetPlayer = nil
+        } else {
+            targetPlayer = game.players[targetPlayerSegment.selectedSegmentIndex]
+        }
+        
         let yaku = Yaku(fan, fu)
         
         game.deal(winPlayer, targetPlayer, yaku)
@@ -70,7 +78,6 @@ class CalculationViewController: BaseViewController {
     @IBAction func didPressStepper(stepper: UIStepper) {
         
         let index = Int(CGFloat(stepper.value))
-        println(index)
         
         if stepper.tag == 1 {
             fanLabel.text = fanArray[index]
@@ -94,10 +101,6 @@ class CalculationViewController: BaseViewController {
             fuLabel.text = fuArray[index]
             fu = fuArray[index].toInt()!
         }
-        
-        println("fan : " + "\(fan)")
-        println("fu : " + "\(fu)")
-        
     }
     
     func setPlayersName(segment: UISegmentedControl, _ players: [Player]) {

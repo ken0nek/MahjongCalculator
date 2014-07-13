@@ -246,6 +246,7 @@
                         <outlet property="fuStepper" destination="stf-5x-K3g" id="KhN-n1-pe2"/>
                         <outlet property="targetPlayerSegment" destination="sL0-jL-YbB" id="Dvn-cJ-ddw"/>
                         <outlet property="winPlayerSegment" destination="nFK-c0-T33" id="vl1-ws-sBy"/>
+                        <outlet property="winTypeSegment" destination="YVA-px-2nI" id="5cR-8v-cOK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1qn-qL-7uk" userLabel="First Responder" sceneMemberID="firstResponder"/>
