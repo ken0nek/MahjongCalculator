@@ -81,6 +81,10 @@ class Yaku {
         self.init(fan, nil)
     }
     
+    func description() {
+        println("Yaku : \n" + "\t fan : \(fan) \n" + "\t fu : \(fu) \n" + "\t basePoints : \(basePoints)")
+    }
+    
     func calculatePoints(winPlayer: Player, _ targetPlayer: Player?) -> Points {
         
         var output = Points()
@@ -99,7 +103,8 @@ class Yaku {
             }
         }
         
-        output.description
+        output.description()
+        description()
         
         return output
     }

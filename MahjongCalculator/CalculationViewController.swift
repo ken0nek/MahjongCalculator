@@ -14,6 +14,7 @@ class CalculationViewController: BaseViewController {
     
     let fanArray = ["1", "2", "3", "4", "満貫", "跳満", "倍満", "3倍満", "役満"]
     let fuArray = ["20", "25", "30", "40", "50", "60", "70", "80", "90", "100", "110"]
+    var otherPlayers = [Player]()
     
     var fan: Int = 1
     var fu: Int = 20
@@ -60,11 +61,13 @@ class CalculationViewController: BaseViewController {
         
         let winPlayer = game.players[winPlayerSegment.selectedSegmentIndex] as Player
         
+        println(winPlayer.isDealer)
+        
         var targetPlayer: Player?
         if winTypeSegment.selectedSegmentIndex == 1 {
             targetPlayer = nil
         } else {
-            targetPlayer = game.players[targetPlayerSegment.selectedSegmentIndex]
+            targetPlayer = otherPlayers[targetPlayerSegment.selectedSegmentIndex]
         }
         
         let yaku = Yaku(fan, fu)
@@ -119,7 +122,7 @@ class CalculationViewController: BaseViewController {
     @IBAction func controlTargetPlayerSegmentTitle(segment: UISegmentedControl) {
         
         let game = gameManager.games[gameManager.currentGameIndex] as Game
-        var otherPlayers = game.players
+        otherPlayers = game.players
         otherPlayers.removeAtIndex(winPlayerSegment.selectedSegmentIndex)
         
         setPlayersName(targetPlayerSegment, otherPlayers)
