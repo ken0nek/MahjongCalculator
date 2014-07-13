@@ -60,7 +60,6 @@ class CalculationViewController: BaseViewController {
         
         let winPlayer = game.players[winPlayerSegment.selectedSegmentIndex] as Player
         
-        
         var targetPlayer: Player?
         if winTypeSegment.selectedSegmentIndex == 1 {
             targetPlayer = nil

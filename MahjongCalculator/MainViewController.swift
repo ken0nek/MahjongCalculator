@@ -22,9 +22,11 @@ class MainViewController: BaseViewController {
     
     var pointLabels = [UILabel]()
     var nameLabels = [UILabel]()
-    var playerLabels = [[UILabel]]()
+    // var playerLabels = [[UILabel]]()
     
     @IBOutlet var gameLabel: UILabel
+    @IBOutlet var honbaLabel: UILabel
+    
     let gameManager = GameManager.sharedManager()
     // let game = GameManager.sharedManager().games[GameManager.sharedManager().currentGameIndex]
     
@@ -71,6 +73,7 @@ class MainViewController: BaseViewController {
         }
         
         gameLabel.text = game.round.toString() + game.hand.toString()
+        honbaLabel.text = game.honba.toString()
     }
 
     override func didReceiveMemoryWarning() {
@@ -103,6 +106,13 @@ class MainViewController: BaseViewController {
             nameLabel.text = player.feng.toString() + " " + player.playerName
         }
         
+        honbaLabel.text = game.honba.toString()
+    }
+    
+    @IBAction func continueGame() {
+        let game = gameManager.games[gameManager.currentGameIndex] as Game
+        game.continueGame()
+        honbaLabel.text = game.honba.toString()
     }
     
     /*

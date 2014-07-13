@@ -103,6 +103,8 @@ enum Honba {
     mutating func reset() {
         self = Zeroth
     }
+    
+    
 }
 
 class Game: NSObject {
@@ -115,35 +117,39 @@ class Game: NSObject {
     init(players: [Player], startingPlayer: Player) {
         self.round = .East
         self.hand = .First
-        self.honba = .First
+        self.honba = .Zeroth
         self.players = players
         self.startingPlayer = startingPlayer
     }
     
     func deal(winPlayer:Player, _ targetPlayer: Player?, _ yaku: Yaku) {
+        
         let points = yaku.calculatePoints(winPlayer, targetPlayer)
         if targetPlayer { // win on discard
             
-            winPlayer.playerPoints += points.first
-            targetPlayer!.playerPoints -= points.first
+            let honbaPoints = honba.hashValue * 300
+            winPlayer.playerPoints += points.first + honbaPoints
+            targetPlayer!.playerPoints -= points.first + honbaPoints
         
         } else { // win on self-draw
             
+            let honbaPoints = honba.hashValue * 100
+            
             if winPlayer.isDealer {
-                winPlayer.playerPoints += points.second!
+                winPlayer.playerPoints += points.second! + honbaPoints
             } else {
-                winPlayer.playerPoints += points.first
+                winPlayer.playerPoints += points.first + honbaPoints
             }
             
             for player in players {
                 if player.isDealer {
-                    player.playerPoints -= points.second!
+                    player.playerPoints -= points.second! + honbaPoints
                 } else {
-                    player.playerPoints -= points.first
+                    player.playerPoints -= points.first + honbaPoints
                 }
             }
             
-            winPlayer.playerPoints += points.sum
+            winPlayer.playerPoints += points.sum + honbaPoints * 3
             
         }
     }
