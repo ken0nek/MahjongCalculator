@@ -48,18 +48,39 @@ class Player: NSObject {
     }
     var playerPoints: Int
     var feng: Feng
+    var playerChips: Int?
+    var isFishing: Bool
     
-    // let gameManager: GameManager = GameManager.sharedManager()
+    init()  {
+        self.playerID = 0
+        self.playerName = ""
+        self.playerPoints = 0
+        self.feng = Feng.East
+        self.isFishing = false
+        self.playerChips = 0
+    }
     
-    init(playerID: Int, playerName: String, playerPoints: Int, feng: Feng) {
+    init(playerID: Int, playerName: String, playerPoints: Int, feng: Feng, playerChips: Int?) {
         self.playerID = playerID
         self.playerName = playerName
         self.playerPoints = playerPoints
         self.feng = feng
+        self.isFishing = false
+        self.playerChips = playerChips
     }
     
     convenience init(playerID: Int, playerName: String, feng: Feng) {
-        self.init(playerID: playerID, playerName: playerName, playerPoints: 25000, feng: feng)
+        self.init(playerID: playerID, playerName: playerName, playerPoints: 25000, feng: feng, playerChips: 20)
     }
     
+    func call() {
+        if playerPoints >= 1000 {
+            playerPoints -= 1000
+            isFishing = true
+        }
+    }
+    
+    func fishing() {
+        isFishing = true
+    }
 }
