@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class MainViewController: BaseViewController {
     
@@ -20,12 +21,19 @@ class MainViewController: BaseViewController {
     @IBOutlet var nameLabel3: UILabel
     @IBOutlet var nameLabel4: UILabel
     
+    @IBOutlet var tempaiButton1: UIButton
+    @IBOutlet var tempaiButton2: UIButton
+    @IBOutlet var tempaiButton3: UIButton
+    @IBOutlet var tempaiButton4: UIButton
+    
     var pointLabels = [UILabel]()
     var nameLabels = [UILabel]()
-    // var playerLabels = [[UILabel]]()
+    var tempaiButtons = [UIButton]()
     
     @IBOutlet var gameLabel: UILabel
     @IBOutlet var honbaLabel: UILabel
+    
+    var audioPlayer = AVAudioPlayer()
     
     let gameManager = GameManager.sharedManager()
     // let game = GameManager.sharedManager().games[GameManager.sharedManager().currentGameIndex]
@@ -35,15 +43,10 @@ class MainViewController: BaseViewController {
 
         // Do any additional setup after loading the view.
         
-        // println(Int(11213).finalize())
-//
-//        let yaku: Yaku = Yaku(1, 30)
-//        println(yaku.basePoints)
-        
-        let tommy = Player(playerID: 0, playerName: "とみ", isDealer: true, feng: Feng.East)
-        let fukkun = Player(playerID: 1, playerName: "ふく", isDealer: false, feng: Feng.South)
-        let yoshi = Player(playerID: 2, playerName: "よし", isDealer: false, feng: Feng.West)
-        let fukudy = Player(playerID: 3, playerName: "でぃ", isDealer: false, feng: Feng.North)
+        let tommy = Player(playerID: 0, playerName: "とみ", feng: Feng.East)
+        let fukkun = Player(playerID: 1, playerName: "ふく", feng: Feng.South)
+        let yoshi = Player(playerID: 2, playerName: "よし", feng: Feng.West)
+        let fukudy = Player(playerID: 3, playerName: "でぃ", feng: Feng.North)
         
         var players = [tommy, fukkun, yoshi, fukudy]
         
@@ -60,20 +63,31 @@ class MainViewController: BaseViewController {
         nameLabels += nameLabel3
         nameLabels += nameLabel4
         
+        tempaiButtons += tempaiButton1
+        tempaiButtons += tempaiButton2
+        tempaiButtons += tempaiButton3
+        tempaiButtons += tempaiButton4
+        
         for pointLabel in pointLabels {
             let player = game.players[pointLabel.tag-1] as Player
             pointLabel.text = "\(player.playerPoints)"
-            rotateLabel(pointLabel)
+            rotateView(pointLabel)
         }
         
         for nameLabel in nameLabels {
             let player = game.players[nameLabel.tag-1] as Player
             nameLabel.text = player.feng.toString() + " " + player.playerName
-            rotateLabel(nameLabel)
+            rotateView(nameLabel)
+        }
+        
+        for tempaiButton in tempaiButtons {
+            rotateView(tempaiButton)
         }
         
         gameLabel.text = game.round.toString() + game.hand.toString()
         honbaLabel.text = game.honba.toString()
+        
+        setFengAndPlayerName()
     }
 
     override func didReceiveMemoryWarning() {
@@ -90,10 +104,13 @@ class MainViewController: BaseViewController {
             let player = game.players[pointLabel.tag - 1] as Player
             pointLabel.text = "\(player.playerPoints)"
         }
+        
+        gameLabel.text = game.round.toString() + game.hand.toString()
+        honbaLabel.text = game.honba.toString()
     }
     
-    func rotateLabel(var label: UILabel) {
-        label.transform = CGAffineTransformMakeRotation(CGFloat(-1 * M_PI_2 * Double(label.tag - 1)))
+    func rotateView(var view: UIView) {
+        view.transform = CGAffineTransformMakeRotation(Double(-1 * M_PI_2 * Double(view.tag - 1)))
     }
     
     @IBAction func goForward() {
@@ -101,18 +118,46 @@ class MainViewController: BaseViewController {
         game.forwardGame()
         gameLabel.text = game.round.toString() + game.hand.toString()
         
-        for nameLabel in nameLabels {
-            let player = game.players[nameLabel.tag-1] as Player
-            nameLabel.text = player.feng.toString() + " " + player.playerName
-        }
+        setFengAndPlayerName()
         
         honbaLabel.text = game.honba.toString()
+    }
+    
+    
+    func setFengAndPlayerName() {
+        
+        let game = gameManager.games[gameManager.currentGameIndex] as Game
+        
+        for nameLabel in nameLabels {
+            let player = game.players[nameLabel.tag-1] as Player
+            
+            let fengString = NSMutableAttributedString(string: player.feng.toString())
+            if player.feng == Feng.East {
+                fengString.addAttribute(NSForegroundColorAttributeName, value: UIColor.redColor(), range: NSMakeRange(0, 1))
+            }
+            
+            let playerNameString = NSAttributedString(string: player.playerName)
+            
+            fengString.appendAttributedString(playerNameString)
+            
+            nameLabel.attributedText = fengString
+        }
+
     }
     
     @IBAction func continueGame() {
         let game = gameManager.games[gameManager.currentGameIndex] as Game
         game.continueGame()
         honbaLabel.text = game.honba.toString()
+    }
+    
+    @IBAction func didPressRichiButton(button: UIButton) {
+        let path = NSBundle.mainBundle().pathForResource("tommy", ofType: "mp3")
+        let url = NSURL(fileURLWithPath: path)
+        audioPlayer = AVAudioPlayer(contentsOfURL: url, error: nil)
+        audioPlayer.currentTime = 0.8
+        audioPlayer.prepareToPlay()
+        audioPlayer.play()
     }
     
     /*

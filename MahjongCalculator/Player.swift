@@ -23,13 +23,13 @@ enum Feng {
     mutating func next() {
         switch self {
         case .East:
-            self = South
-        case .South:
-            self = West
-        case .West:
             self = North
-        case .North:
+        case .South:
             self = East
+        case .West:
+            self = South
+        case .North:
+            self = West
         }
     }
 }
@@ -37,22 +37,29 @@ enum Feng {
 class Player: NSObject {
     let playerID: Int
     var playerName: String
-    var isDealer: Bool
+    var isDealer: Bool {
+    get {
+        if feng == Feng.East {
+            return true
+        } else {
+            return false
+        }
+    }
+    }
     var playerPoints: Int
     var feng: Feng
     
     // let gameManager: GameManager = GameManager.sharedManager()
     
-    init(playerID: Int, playerName: String, isDealer: Bool, playerPoints: Int, feng: Feng) {
+    init(playerID: Int, playerName: String, playerPoints: Int, feng: Feng) {
         self.playerID = playerID
         self.playerName = playerName
-        self.isDealer = isDealer
         self.playerPoints = playerPoints
         self.feng = feng
     }
     
-    convenience init(playerID: Int, playerName: String, isDealer: Bool, feng: Feng) {
-        self.init(playerID: playerID, playerName: playerName, isDealer: isDealer, playerPoints: 25000, feng: feng)
+    convenience init(playerID: Int, playerName: String, feng: Feng) {
+        self.init(playerID: playerID, playerName: playerName, playerPoints: 25000, feng: feng)
     }
     
 }

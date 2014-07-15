@@ -36,10 +36,11 @@ class CalculationViewController: BaseViewController {
         // Do any additional setup after loading the view.
     
         fanLabel.text = fanArray[0]
-        fanStepper.maximumValue = CGFloat(fanArray.count) - 1
+        fanStepper.maximumValue = Double((fanArray.count - 1))
+
         
         fuLabel.text = fuArray[0]
-        fuStepper.maximumValue = CGFloat(fuArray.count) - 1
+        fuStepper.maximumValue = Double((fuArray.count - 1))
         
         let game = gameManager.games[gameManager.currentGameIndex] as Game
         setPlayersName(winPlayerSegment, game.players)
@@ -61,8 +62,6 @@ class CalculationViewController: BaseViewController {
         
         let winPlayer = game.players[winPlayerSegment.selectedSegmentIndex] as Player
         
-        println(winPlayer.isDealer)
-        
         var targetPlayer: Player?
         if winTypeSegment.selectedSegmentIndex == 1 {
             targetPlayer = nil
@@ -74,12 +73,18 @@ class CalculationViewController: BaseViewController {
         
         game.deal(winPlayer, targetPlayer, yaku)
         
+        if winPlayer.isDealer {
+            game.continueGame()
+        } else {
+            game.forwardGame()
+        }
+        
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 
     @IBAction func didPressStepper(stepper: UIStepper) {
         
-        let index = Int(CGFloat(stepper.value))
+        let index = Int((stepper.value) as Double)
         
         if stepper.tag == 1 {
             fanLabel.text = fanArray[index]
