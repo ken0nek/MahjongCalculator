@@ -114,6 +114,14 @@ class Game: NSObject {
     var players: [Player]
     var startingPlayer: Player
     
+    init() {
+        self.round = .East
+        self.hand = .First
+        self.honba = .Zeroth
+        self.players = [Player]()
+        self.startingPlayer = Player()
+    }
+    
     init(players: [Player], startingPlayer: Player) {
         self.round = .East
         self.hand = .First
