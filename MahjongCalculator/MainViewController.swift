@@ -9,34 +9,24 @@
 import UIKit
 import AVFoundation
 
+extension CGPoint {
+    func addition(point: CGPoint) -> CGPoint {
+        return CGPointMake(self.x + point.x, self.y + point.y)
+    }
+}
+
 class MainViewController: BaseViewController {
-    
-    @IBOutlet var pointLabel1: UILabel
-    @IBOutlet var pointLabel2: UILabel
-    @IBOutlet var pointLabel3: UILabel
-    @IBOutlet var pointLabel4: UILabel
-    
-    @IBOutlet var nameLabel1: UILabel
-    @IBOutlet var nameLabel2: UILabel
-    @IBOutlet var nameLabel3: UILabel
-    @IBOutlet var nameLabel4: UILabel
-    
-    @IBOutlet var tempaiButton1: UIButton
-    @IBOutlet var tempaiButton2: UIButton
-    @IBOutlet var tempaiButton3: UIButton
-    @IBOutlet var tempaiButton4: UIButton
-    
-    var pointLabels = [UILabel]()
-    var nameLabels = [UILabel]()
-    var tempaiButtons = [UIButton]()
     
     @IBOutlet var gameLabel: UILabel
     @IBOutlet var honbaLabel: UILabel
     
+    var pointLabels = [UILabel]()
+    var fengAndNameLabels = [UILabel]()
+    
     var audioPlayer = AVAudioPlayer()
     
     let gameManager = GameManager.sharedManager()
-    // let game = GameManager.sharedManager().games[GameManager.sharedManager().currentGameIndex]
+    var game = Game()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,43 +41,75 @@ class MainViewController: BaseViewController {
         var players = [tommy, fukkun, yoshi, fukudy]
         
         gameManager.startGame(Game(players: players, startingPlayer: players[0]))
-        let game = gameManager.games[gameManager.currentGameIndex] as Game
+        game = gameManager.games[gameManager.currentGameIndex]
         
-        pointLabels += pointLabel1
-        pointLabels += pointLabel2
-        pointLabels += pointLabel3
-        pointLabels += pointLabel4
+        let centerPoint = CGPointMake(320/2, 568/2)
+        let radiusArray: [Int] = [60, 85, 110, 135]
+        var positionArray: [[CGPoint]] = [
+            [CGPointMake(0, 0), CGPointMake(0, 0), CGPointMake(0, 0), CGPointMake(0, 0)],
+            [CGPointMake(0, 0), CGPointMake(0, 0), CGPointMake(0, 0), CGPointMake(0, 0)],
+            [CGPointMake(0, 0), CGPointMake(0, 0), CGPointMake(0, 0), CGPointMake(0, 0)],
+            [CGPointMake(0, 0), CGPointMake(0, 0), CGPointMake(0, 0), CGPointMake(0, 0)]]
         
-        nameLabels += nameLabel1
-        nameLabels += nameLabel2
-        nameLabels += nameLabel3
-        nameLabels += nameLabel4
-        
-        tempaiButtons += tempaiButton1
-        tempaiButtons += tempaiButton2
-        tempaiButtons += tempaiButton3
-        tempaiButtons += tempaiButton4
-        
-        for pointLabel in pointLabels {
-            let player = game.players[pointLabel.tag-1] as Player
-            pointLabel.text = "\(player.playerPoints)"
-            rotateView(pointLabel)
+        for var ri: Int = 0; ri < 4; ri++ { // radius
+            for var dj: Int = 0; dj < 4; dj++ { // degree
+                let point = CGPoint(x: radiusArray[ri] * Int(sinf(Float(M_PI_2) * Float(dj))), y: radiusArray[ri] * Int(cosf(Float(M_PI_2) * Float(dj))))
+                positionArray[ri][dj] = centerPoint.addition(point)
+                // viewWithPosition WithNumber
+                if ri == 0 { // fishing
+                    let fishingButton = UIButton.buttonWithType(UIButtonType.Custom) as UIButton
+                    fishingButton.frame = CGRectMake(0, 0, 80, 20)
+                    fishingButton.tag = dj + 1
+                    fishingButton.center = positionArray[ri][dj]
+                    fishingButton.setTitle("リーチ", forState: UIControlState.Normal)
+                    fishingButton.setTitle("リーチ!", forState: UIControlState.Highlighted)
+                    fishingButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+                    fishingButton.setTitleColor(UIColor.redColor(), forState: UIControlState.Highlighted)
+                    fishingButton.titleLabel.font = UIFont.boldSystemFontOfSize(15)
+                    fishingButton.titleLabel.textAlignment = NSTextAlignment.Center
+                    rotateView(fishingButton)
+                    self.view.addSubview(fishingButton)
+                } else if ri == 1 { // feng + name
+                    let fengAndNameLabel = UILabel(frame: CGRectMake(0, 0, 80, 20))
+                    fengAndNameLabel.tag = dj + 1
+                    fengAndNameLabel.center = positionArray[ri][dj]
+                    fengAndNameLabel.textAlignment = NSTextAlignment.Center
+                    fengAndNameLabel.font = UIFont.boldSystemFontOfSize(20)
+                    let player = game.players[dj] as Player
+                    fengAndNameLabel.text = player.feng.toString() + " " + player.playerName
+                    rotateView(fengAndNameLabel)
+                    self.view.addSubview(fengAndNameLabel)
+                    fengAndNameLabels += fengAndNameLabel
+                } else if ri == 2 { // points + chips
+                    let pointLabel = UILabel(frame: CGRectMake(0, 0, 100, 20))
+                    pointLabel.tag = dj + 1
+                    pointLabel.center = positionArray[ri][dj]
+                    pointLabel.textAlignment = NSTextAlignment.Center
+                    pointLabel.font = UIFont.boldSystemFontOfSize(15)
+                    let player = game.players[dj] as Player
+                    pointLabel.text = "\(player.playerPoints)" + " " + "\(player.playerChips)"
+                    rotateView(pointLabel)
+                    self.view.addSubview(pointLabel)
+                    pointLabels += pointLabel
+                } else { // win
+                    let winButton = UIButton.buttonWithType(UIButtonType.Custom) as UIButton
+                    winButton.frame = CGRectMake(0, 0, 80, 20)
+                    winButton.tag = dj + 1
+                    winButton.center = positionArray[ri][dj]
+                    winButton.setTitle("和了", forState: UIControlState.Normal)
+                    winButton.setTitleColor(UIColor.redColor(), forState: UIControlState.Normal)
+                    winButton.titleLabel.font = UIFont.boldSystemFontOfSize(15)
+                    winButton.titleLabel.textAlignment = NSTextAlignment.Center
+                    rotateView(winButton)
+                    self.view.addSubview(winButton)
+                }
+            }
         }
         
-        for nameLabel in nameLabels {
-            let player = game.players[nameLabel.tag-1] as Player
-            nameLabel.text = player.feng.toString() + " " + player.playerName
-            rotateView(nameLabel)
-        }
-        
-        for tempaiButton in tempaiButtons {
-            rotateView(tempaiButton)
-        }
+        setFengAndPlayerName()
         
         gameLabel.text = game.round.toString() + game.hand.toString()
         honbaLabel.text = game.honba.toString()
-        
-        setFengAndPlayerName()
     }
 
     override func didReceiveMemoryWarning() {
@@ -98,11 +120,9 @@ class MainViewController: BaseViewController {
     override func viewWillAppear(animated: Bool)  {
         super.viewWillAppear(animated)
         
-        let game = gameManager.games[gameManager.currentGameIndex] as Game
-        
         for pointLabel in pointLabels {
             let player = game.players[pointLabel.tag - 1] as Player
-            pointLabel.text = "\(player.playerPoints)"
+            pointLabel.text = "\(player.playerPoints)" + " " + "\(player.playerChips)"
         }
         
         gameLabel.text = game.round.toString() + game.hand.toString()
@@ -110,11 +130,10 @@ class MainViewController: BaseViewController {
     }
     
     func rotateView(var view: UIView) {
-        view.transform = CGAffineTransformMakeRotation(Double(-1 * M_PI_2 * Double(view.tag - 1)))
+        view.transform = CGAffineTransformRotate(view.transform, CGFloat(-1 * M_PI_2 * Double(view.tag - 1)))
     }
     
     @IBAction func goForward() {
-        let game = gameManager.games[gameManager.currentGameIndex] as Game
         game.forwardGame()
         gameLabel.text = game.round.toString() + game.hand.toString()
         
@@ -123,13 +142,10 @@ class MainViewController: BaseViewController {
         honbaLabel.text = game.honba.toString()
     }
     
-    
     func setFengAndPlayerName() {
         
-        let game = gameManager.games[gameManager.currentGameIndex] as Game
-        
-        for nameLabel in nameLabels {
-            let player = game.players[nameLabel.tag-1] as Player
+        for fengAndNameLabel in fengAndNameLabels {
+            let player = game.players[fengAndNameLabel.tag - 1] as Player
             
             let fengString = NSMutableAttributedString(string: player.feng.toString())
             if player.feng == Feng.East {
@@ -140,18 +156,17 @@ class MainViewController: BaseViewController {
             
             fengString.appendAttributedString(playerNameString)
             
-            nameLabel.attributedText = fengString
+            fengAndNameLabel.attributedText = fengString
         }
 
     }
     
     @IBAction func continueGame() {
-        let game = gameManager.games[gameManager.currentGameIndex] as Game
         game.continueGame()
         honbaLabel.text = game.honba.toString()
     }
     
-    @IBAction func didPressRichiButton(button: UIButton) {
+    @IBAction func didPressFishingButton(button: UIButton) {
         let path = NSBundle.mainBundle().pathForResource("tommy", ofType: "mp3")
         let url = NSURL(fileURLWithPath: path)
         audioPlayer = AVAudioPlayer(contentsOfURL: url, error: nil)
