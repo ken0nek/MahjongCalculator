@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6181.2"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Setting View Controller-->
         <scene sceneID="sat-3R-8x9">
             <objects>
-                <viewController id="lVk-AP-eN6" sceneMemberID="viewController">
+                <viewController id="lVk-AP-eN6" customClass="SettingViewController" customModule="MahjongCalculator" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xAc-yi-C31"/>
                         <viewControllerLayoutGuide type="bottom" id="ooe-ZL-KYw"/>
@@ -262,6 +262,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="nfe-iM-yGp"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4">
                         <size key="portraitSize" width="320" height="568"/>
@@ -283,10 +286,10 @@
             </objects>
             <point key="canvasLocation" x="944" y="317"/>
         </scene>
-        <!--View Controller-->
+        <!--Score View Controller-->
         <scene sceneID="DI4-bw-ZOV">
             <objects>
-                <viewController id="u2W-Yv-MmX" sceneMemberID="viewController">
+                <viewController id="u2W-Yv-MmX" customClass="ScoreViewController" customModule="MahjongCalculator" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7t6-zT-7Qw"/>
                         <viewControllerLayoutGuide type="bottom" id="Z9z-mG-KzR"/>
@@ -310,7 +313,7 @@
         <!--初期設定-->
         <scene sceneID="oAW-ge-MNu">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qVV-NR-tOg" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qVV-NR-tOg" customClass="BaseNavigationController" customModule="MahjongCalculator" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="初期設定" id="xqF-EA-4CB"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="X57-tl-gPf">
@@ -329,7 +332,7 @@
         <!--対局-->
         <scene sceneID="HIg-NR-27f">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fBQ-J2-X9X" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fBQ-J2-X9X" customClass="BaseNavigationController" customModule="MahjongCalculator" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="対局" id="m9k-0I-g6y"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="2na-Xd-zKg">
@@ -348,7 +351,7 @@
         <!--戦績-->
         <scene sceneID="8Bg-17-TjF">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="g47-Fx-vsW" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="g47-Fx-vsW" customClass="BaseNavigationController" customModule="MahjongCalculator" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="戦績" id="pn4-ar-CQ1"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="J5U-bA-AAw">
