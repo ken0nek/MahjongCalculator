@@ -67,6 +67,7 @@ class MainViewController: BaseViewController {
                     fishingButton.setTitleColor(UIColor.redColor(), forState: UIControlState.Highlighted)
                     fishingButton.titleLabel.font = UIFont.boldSystemFontOfSize(15)
                     fishingButton.titleLabel.textAlignment = NSTextAlignment.Center
+                    fishingButton.addTarget(self, action: Selector("didPressFishingButton:"), forControlEvents: UIControlEvents.TouchUpInside)
                     rotateView(fishingButton)
                     self.view.addSubview(fishingButton)
                 } else if ri == 1 { // feng + name
@@ -85,7 +86,7 @@ class MainViewController: BaseViewController {
                     pointLabel.tag = dj + 1
                     pointLabel.center = positionArray[ri][dj]
                     pointLabel.textAlignment = NSTextAlignment.Center
-                    pointLabel.font = UIFont.boldSystemFontOfSize(15)
+                    pointLabel.font = UIFont.boldSystemFontOfSize(20)
                     let player = game.players[dj] as Player
                     pointLabel.text = "\(player.playerPoints)" + " " + "\(player.playerChips)"
                     rotateView(pointLabel)
@@ -166,7 +167,7 @@ class MainViewController: BaseViewController {
         honbaLabel.text = game.honba.toString()
     }
     
-    @IBAction func didPressFishingButton(button: UIButton) {
+    func didPressFishingButton(button: UIButton) {
         let path = NSBundle.mainBundle().pathForResource("tommy", ofType: "mp3")
         let url = NSURL(fileURLWithPath: path)
         audioPlayer = AVAudioPlayer(contentsOfURL: url, error: nil)

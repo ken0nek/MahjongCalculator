@@ -181,10 +181,10 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stepper opaque="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="fHE-K8-cLl">
+                            <stepper opaque="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="fHE-K8-cLl">
                                 <rect key="frame" x="114" y="210" width="94" height="29"/>
                                 <connections>
-                                    <action selector="didPressStepper:" destination="ZWR-p8-g4q" eventType="valueChanged" id="Nz2-Mn-FbW"/>
+                                    <action selector="didPressStepper:" destination="ZWR-p8-g4q" eventType="valueChanged" id="WDA-lo-Aag"/>
                                 </connections>
                             </stepper>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t47-3E-sYD">
@@ -218,6 +218,8 @@
                         <size key="landscapeSize" width="568" height="320"/>
                     </simulatedScreenMetrics>
                     <connections>
+                        <outlet property="chipsLabel" destination="t47-3E-sYD" id="EvW-Gm-dJ8"/>
+                        <outlet property="chipsStepper" destination="fHE-K8-cLl" id="Z0e-rq-wGV"/>
                         <outlet property="fanLabel" destination="UPO-ez-qbF" id="rji-PM-RPR"/>
                         <outlet property="fanStepper" destination="mpG-8T-TkH" id="kS1-3d-k8w"/>
                         <outlet property="fuLabel" destination="ZTB-xT-mPd" id="euw-jQ-xv7"/>

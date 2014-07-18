@@ -48,7 +48,7 @@ class Player: NSObject {
     }
     var playerPoints: Int
     var feng: Feng
-    var playerChips: Int?
+    var playerChips: Int
     var isFishing: Bool
     
     init()  {
@@ -60,7 +60,7 @@ class Player: NSObject {
         self.playerChips = 0
     }
     
-    init(playerID: Int, playerName: String, playerPoints: Int, feng: Feng, playerChips: Int?) {
+    init(playerID: Int, playerName: String, playerPoints: Int, feng: Feng, playerChips: Int) {
         self.playerID = playerID
         self.playerName = playerName
         self.playerPoints = playerPoints

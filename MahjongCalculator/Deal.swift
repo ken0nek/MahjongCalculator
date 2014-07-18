@@ -9,5 +9,6 @@
 import UIKit
 
 class Deal: NSObject {
-   
+//    var winPlayer: Player
+//    var targetPlayer: Player
 }

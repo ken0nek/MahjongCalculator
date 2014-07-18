@@ -18,12 +18,15 @@ class CalculationViewController: BaseViewController {
     
     var fan: Int = 1
     var fu: Int = 20
+    var chips: Int = 0
     
     @IBOutlet var fanStepper: UIStepper
     @IBOutlet var fuStepper: UIStepper
+    @IBOutlet var chipsStepper: UIStepper
     
     @IBOutlet var fanLabel: UILabel
     @IBOutlet var fuLabel: UILabel
+    @IBOutlet var chipsLabel: UILabel
     
     @IBOutlet var winTypeSegment: UISegmentedControl
     
@@ -41,6 +44,8 @@ class CalculationViewController: BaseViewController {
         
         fuLabel.text = fuArray[0]
         fuStepper.maximumValue = Double((fuArray.count - 1))
+        
+        chipsLabel.text = "\(chips)"
         
         let game = gameManager.games[gameManager.currentGameIndex] as Game
         setPlayersName(winPlayerSegment, game.players)
@@ -60,25 +65,16 @@ class CalculationViewController: BaseViewController {
     @IBAction func didPressRegisterButton() {
         let game = gameManager.games[gameManager.currentGameIndex] as Game
         
-        let winPlayer = game.players[winPlayerSegment.selectedSegmentIndex] as Player
+        var targetPlayerIndex: Int?
         
-        var targetPlayer: Player?
-        if winTypeSegment.selectedSegmentIndex == 1 {
-            targetPlayer = nil
-        } else {
-            targetPlayer = otherPlayers[targetPlayerSegment.selectedSegmentIndex]
+        if winTypeSegment.selectedSegmentIndex == 0 {
+            targetPlayerIndex = targetPlayerSegment.selectedSegmentIndex
         }
         
         let yaku = Yaku(fan, fu)
         
-        game.deal(winPlayer, targetPlayer, yaku)
-        
-        if winPlayer.isDealer {
-            game.continueGame()
-        } else {
-            game.forwardGame()
-        }
-        
+        game.deal(winPlayerSegment.selectedSegmentIndex, targetPlayerSegment.selectedSegmentIndex, yaku, chips)
+
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 
@@ -104,9 +100,12 @@ class CalculationViewController: BaseViewController {
                 fuStepper.alpha = 1
                 fuLabel.alpha = 1
             }
-        } else {
+        } else if stepper.tag == 2 {
             fuLabel.text = fuArray[index]
             fu = fuArray[index].toInt()!
+        } else {
+            chips = index
+            chipsLabel.text = "\(chips)"
         }
     }
     

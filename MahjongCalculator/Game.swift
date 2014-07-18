@@ -113,6 +113,7 @@ class Game: NSObject {
     var honba: Honba
     var players: [Player]
     var startingPlayer: Player
+    var poolPoints: Int = 0
     
     init() {
         self.round = .East
@@ -130,35 +131,50 @@ class Game: NSObject {
         self.startingPlayer = startingPlayer
     }
     
-    func deal(winPlayer:Player, _ targetPlayer: Player?, _ yaku: Yaku) {
+    func deal(winPlayerIndex: Int, _ targetPlayerIndex: Int?, _ yaku: Yaku, _ chips: Int) {
+        
+        let winPlayer = players[winPlayerIndex]
+        var targetPlayer: Player?
+        
+        if targetPlayerIndex {
+            targetPlayer = players[targetPlayerIndex!]
+        }
         
         let points = yaku.calculatePoints(winPlayer, targetPlayer)
+        
         if targetPlayer { // win on discard
             
             let honbaPoints = honba.hashValue * 300
-            winPlayer.playerPoints += points.first + honbaPoints
-            targetPlayer!.playerPoints -= points.first + honbaPoints
-        
+            winPlayer.playerPoints += points.sum + honbaPoints
+            winPlayer.playerChips += chips
+            
+            targetPlayer!.playerPoints -= points.sum + honbaPoints
+            targetPlayer!.playerChips -= chips
+            
         } else { // win on self-draw
+            var otherPlayers = players
+            otherPlayers.removeAtIndex(winPlayerIndex)
             
             let honbaPoints = honba.hashValue * 100
-            
-            if winPlayer.isDealer {
-                winPlayer.playerPoints += points.second! + honbaPoints
-            } else {
-                winPlayer.playerPoints += points.first + honbaPoints
-            }
-            
-            for player in players {
-                if player.isDealer {
-                    player.playerPoints -= points.second! + honbaPoints
+            winPlayer.playerPoints += points.sum + honbaPoints
+            winPlayer.playerChips += chips * 3
+    
+            for otherPlayer in otherPlayers {
+                if otherPlayer.isDealer {
+                    otherPlayer.playerPoints -= points.second! + honbaPoints
                 } else {
-                    player.playerPoints -= points.first + honbaPoints
+                    otherPlayer.playerPoints -= points.first + honbaPoints
                 }
+                
+                otherPlayer.playerChips -= chips
             }
-            
-            winPlayer.playerPoints += points.sum + honbaPoints * 3
-            
+        }
+        
+        
+        if players[winPlayerIndex].isDealer {
+            continueGame()
+        } else {
+            forwardGame()
         }
     }
     

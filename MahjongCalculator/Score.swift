@@ -9,5 +9,8 @@
 import UIKit
 
 class Score: NSObject {
-    
+    var uma: Int = 0
+    var oka1: Int = 0
+    var oka2: Int?
+    var rate: Int = 0
 }

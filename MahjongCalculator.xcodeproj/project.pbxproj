@@ -20,6 +20,7 @@
 		4AC90F69196E4C37004829BB /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC90F68196E4C37004829BB /* GameManager.swift */; };
 		4AC90F6B196E4C48004829BB /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC90F6A196E4C48004829BB /* Player.swift */; };
 		4AC90F6D196E51C7004829BB /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC90F6C196E51C7004829BB /* Game.swift */; };
+		4ADCA2331977B27900E4C6EA /* Deal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADCA2321977B27900E4C6EA /* Deal.swift */; };
 		4AF204A0196F769B00891AFD /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF2049F196F769B00891AFD /* BaseViewController.swift */; };
 		4AF204A2196F7EE600891AFD /* CalculationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF204A1196F7EE600891AFD /* CalculationViewController.swift */; };
 		4AF204AA196FE0EB00891AFD /* Points.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF204A9196FE0EB00891AFD /* Points.swift */; };
@@ -53,6 +54,7 @@
 		4AC90F68196E4C37004829BB /* GameManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
 		4AC90F6A196E4C48004829BB /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		4AC90F6C196E51C7004829BB /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		4ADCA2321977B27900E4C6EA /* Deal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deal.swift; sourceTree = "<group>"; };
 		4AF2049F196F769B00891AFD /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		4AF204A1196F7EE600891AFD /* CalculationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculationViewController.swift; sourceTree = "<group>"; };
 		4AF204A9196FE0EB00891AFD /* Points.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Points.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				4AF2049F196F769B00891AFD /* BaseViewController.swift */,
 				4AC90F66196E2454004829BB /* MainViewController.swift */,
 				4AF204A1196F7EE600891AFD /* CalculationViewController.swift */,
+				4ADCA2321977B27900E4C6EA /* Deal.swift */,
 				4AC90F68196E4C37004829BB /* GameManager.swift */,
 				4AC90F6C196E51C7004829BB /* Game.swift */,
 				4AC90F6A196E4C48004829BB /* Player.swift */,
@@ -246,6 +249,7 @@
 				4AF204A2196F7EE600891AFD /* CalculationViewController.swift in Sources */,
 				4AC90F67196E2454004829BB /* MainViewController.swift in Sources */,
 				4AC90F6D196E51C7004829BB /* Game.swift in Sources */,
+				4ADCA2331977B27900E4C6EA /* Deal.swift in Sources */,
 				4AC90F69196E4C37004829BB /* GameManager.swift in Sources */,
 				4A9EEB42197353E2006163C4 /* Score.swift in Sources */,
 				4AF204AA196FE0EB00891AFD /* Points.swift in Sources */,
