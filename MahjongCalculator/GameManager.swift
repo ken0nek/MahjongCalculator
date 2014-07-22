@@ -11,7 +11,9 @@ import UIKit
 class GameManager: NSObject {
     
     var games: [Game] = []
+    var deals: [Deal] = []
     var currentGameIndex: Int = 0
+    var currentDealIndex: Int = 0
     
     class func sharedManager() -> GameManager {
     struct Singleton {
@@ -24,12 +26,18 @@ class GameManager: NSObject {
     }
     
     func startGame(game: Game) {
+        deals = []
         games += game
     }
     
     func nextGame(game: Game) {
         currentGameIndex++
         startGame(game)
+    }
+    
+    func recordGame(game: Game) {
+        let deal = Deal(game)
+        deals += deal
     }
     
     func finishGame(game: Game) {

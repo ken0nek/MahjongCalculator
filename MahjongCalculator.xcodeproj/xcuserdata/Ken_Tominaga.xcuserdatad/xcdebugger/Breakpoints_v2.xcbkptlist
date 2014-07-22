@@ -6,16 +6,124 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MahjongCalculator/Points.swift"
-            timestampString = "426988020.823024"
+            filePath = "MahjongCalculator/Game.swift"
+            timestampString = "427702605.957408"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "146"
-            endingLineNumber = "146"
-            landmarkName = "calculateDealerDiscardPoints()"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
+            landmarkName = "deal(_:_:_:_:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MahjongCalculator.Game.deal (MahjongCalculator.Game)(Swift.Int, Swift.Optional&lt;Swift.Int&gt;, MahjongCalculator.Yaku, Swift.Int) -&gt; ()"
+                  moduleName = "MahjongCalculator"
+                  urlString = "file:///Users/Ken_Tominaga/Documents/XcodeWorks/MahjongCalculator/MahjongCalculator/Game.swift"
+                  timestampString = "427702881.900811"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "149"
+                  endingLineNumber = "149"
+                  offsetFromSymbolStart = "1040">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MahjongCalculator.Game.deal (MahjongCalculator.Game)(Swift.Int, Swift.Optional&lt;Swift.Int&gt;, MahjongCalculator.Yaku, Swift.Int) -&gt; ()"
+                  moduleName = "MahjongCalculator"
+                  urlString = "file:///Users/Ken_Tominaga/Documents/XcodeWorks/MahjongCalculator/MahjongCalculator/Game.swift"
+                  timestampString = "427702881.903424"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "149"
+                  endingLineNumber = "149"
+                  offsetFromSymbolStart = "1108">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MahjongCalculator/Game.swift"
+            timestampString = "427702605.957408"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "160"
+            endingLineNumber = "160"
+            landmarkName = "deal(_:_:_:_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MahjongCalculator/Game.swift"
+            timestampString = "427702605.957408"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
+            landmarkName = "deal(_:_:_:_:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MahjongCalculator.Game.deal (MahjongCalculator.Game)(Swift.Int, Swift.Optional&lt;Swift.Int&gt;, MahjongCalculator.Yaku, Swift.Int) -&gt; ()"
+                  moduleName = "MahjongCalculator"
+                  urlString = "file:///Users/Ken_Tominaga/Documents/XcodeWorks/MahjongCalculator/MahjongCalculator/Game.swift"
+                  timestampString = "427702881.930515"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "169"
+                  endingLineNumber = "169"
+                  offsetFromSymbolStart = "5484">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MahjongCalculator.Game.deal (MahjongCalculator.Game)(Swift.Int, Swift.Optional&lt;Swift.Int&gt;, MahjongCalculator.Yaku, Swift.Int) -&gt; ()"
+                  moduleName = "MahjongCalculator"
+                  urlString = "file:///Users/Ken_Tominaga/Documents/XcodeWorks/MahjongCalculator/MahjongCalculator/Game.swift"
+                  timestampString = "427702881.930907"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "169"
+                  endingLineNumber = "169"
+                  offsetFromSymbolStart = "5560">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MahjongCalculator/Game.swift"
+            timestampString = "427702495.399115"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
+            landmarkName = "deal(_:_:_:_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

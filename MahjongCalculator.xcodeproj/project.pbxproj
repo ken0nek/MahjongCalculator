@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A14F98E197E247F00AB279B /* MCPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A14F98D197E247F00AB279B /* MCPlayer.m */; };
 		4A9EEB42197353E2006163C4 /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9EEB41197353E1006163C4 /* Score.swift */; };
 		4A9EEB4419739256006163C4 /* tommy.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4A9EEB4319739256006163C4 /* tommy.mp3 */; };
 		4A9EEB4619739404006163C4 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A9EEB4519739404006163C4 /* AVFoundation.framework */; };
@@ -40,6 +41,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4A14F98C197E247F00AB279B /* MCPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCPlayer.h; sourceTree = "<group>"; };
+		4A14F98D197E247F00AB279B /* MCPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCPlayer.m; sourceTree = "<group>"; };
+		4A14F992197E35B100AB279B /* MahjongCalculator-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MahjongCalculator-Bridging-Header.h"; sourceTree = "<group>"; };
 		4A9EEB41197353E1006163C4 /* Score.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
 		4A9EEB4319739256006163C4 /* tommy.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = tommy.mp3; sourceTree = "<group>"; };
 		4A9EEB4519739404006163C4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -115,9 +119,9 @@
 				4AF204A1196F7EE600891AFD /* CalculationViewController.swift */,
 				4ADCA2361978AB7800E4C6EA /* ScoreViewController.swift */,
 				4ADCA2381978AB8900E4C6EA /* SettingViewController.swift */,
-				4ADCA2321977B27900E4C6EA /* Deal.swift */,
 				4AC90F68196E4C37004829BB /* GameManager.swift */,
 				4AC90F6C196E51C7004829BB /* Game.swift */,
+				4ADCA2321977B27900E4C6EA /* Deal.swift */,
 				4AC90F6A196E4C48004829BB /* Player.swift */,
 				4AF204A9196FE0EB00891AFD /* Points.swift */,
 				4AA8C3AF1974D06D00FBF287 /* ScoreManager.swift */,
@@ -125,6 +129,9 @@
 				4A9EEB4319739256006163C4 /* tommy.mp3 */,
 				4AC90F50196E2399004829BB /* Images.xcassets */,
 				4AC90F48196E2399004829BB /* MahjongCalculator.xcdatamodeld */,
+				4A14F98C197E247F00AB279B /* MCPlayer.h */,
+				4A14F98D197E247F00AB279B /* MCPlayer.m */,
+				4A14F992197E35B100AB279B /* MahjongCalculator-Bridging-Header.h */,
 				4AC90F44196E2399004829BB /* Supporting Files */,
 			);
 			path = MahjongCalculator;
@@ -257,6 +264,7 @@
 			files = (
 				4ADCA2351978AA4E00E4C6EA /* BaseNavigationController.swift in Sources */,
 				4AF204A2196F7EE600891AFD /* CalculationViewController.swift in Sources */,
+				4A14F98E197E247F00AB279B /* MCPlayer.m in Sources */,
 				4AC90F67196E2454004829BB /* MainViewController.swift in Sources */,
 				4AC90F6D196E51C7004829BB /* Game.swift in Sources */,
 				4ADCA2331977B27900E4C6EA /* Deal.swift in Sources */,
@@ -385,10 +393,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = MahjongCalculator/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MahjongCalculator/MahjongCalculator-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -398,10 +409,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = MahjongCalculator/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MahjongCalculator/MahjongCalculator-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

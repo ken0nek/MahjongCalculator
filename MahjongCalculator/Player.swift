@@ -81,6 +81,8 @@ class Player: NSObject {
     }
     
     func fishing() {
-        isFishing = true
+        if !isFishing {
+            isFishing = true
+        }
     }
 }

@@ -9,6 +9,24 @@
 import UIKit
 import AVFoundation
 
+extension UIButton {
+    var toggle: Bool {
+    get {
+        return self.toggle
+    }
+    set {
+        self.toggle = newValue
+    }
+    }
+    
+    func setToggle() {
+        if toggle {
+            
+        }
+    }
+    
+}
+
 extension CGPoint {
     func addition(point: CGPoint) -> CGPoint {
         return CGPointMake(self.x + point.x, self.y + point.y)
@@ -19,6 +37,7 @@ class MainViewController: BaseViewController {
     
     @IBOutlet var gameLabel: UILabel
     @IBOutlet var honbaLabel: UILabel
+    @IBOutlet var poolPointsLabel: UILabel
     
     var pointLabels = [UILabel]()
     var fengAndNameLabels = [UILabel]()
@@ -40,7 +59,7 @@ class MainViewController: BaseViewController {
         
         var players = [tommy, fukkun, yoshi, fukudy]
         
-        gameManager.startGame(Game(players: players, startingPlayer: players[0]))
+        gameManager.startGame(Game(players, 0))
         game = gameManager.games[gameManager.currentGameIndex]
         
         let centerPoint = CGPointMake(320/2, 568/2)

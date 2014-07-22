@@ -59,7 +59,7 @@ class CalculationViewController: BaseViewController {
     }
     
     @IBAction func didPressBackButton() {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.navigationController.popViewControllerAnimated(true)
     }
 
     @IBAction func didPressRegisterButton() {
@@ -73,9 +73,9 @@ class CalculationViewController: BaseViewController {
         
         let yaku = Yaku(fan, fu)
         
-        game.deal(winPlayerSegment.selectedSegmentIndex, targetPlayerSegment.selectedSegmentIndex, yaku, chips)
+        game.deal(winPlayerSegment.selectedSegmentIndex, targetPlayerIndex, yaku, chips)
 
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.navigationController.popViewControllerAnimated(true)
     }
 
     @IBAction func didPressStepper(stepper: UIStepper) {

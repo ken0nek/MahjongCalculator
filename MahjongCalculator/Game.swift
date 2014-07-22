@@ -112,7 +112,7 @@ class Game: NSObject {
     var hand: Hand
     var honba: Honba
     var players: [Player]
-    var startingPlayer: Player
+    var startingPlayerIndex: Int
     var poolPoints: Int = 0
     
     init() {
@@ -120,24 +120,26 @@ class Game: NSObject {
         self.hand = .First
         self.honba = .Zeroth
         self.players = [Player]()
-        self.startingPlayer = Player()
+        self.startingPlayerIndex = 0
     }
     
-    init(players: [Player], startingPlayer: Player) {
+    init(_ players: [Player], _ startingPlayerIndex: Int) {
         self.round = .East
         self.hand = .First
         self.honba = .Zeroth
         self.players = players
-        self.startingPlayer = startingPlayer
+        self.startingPlayerIndex = startingPlayerIndex
     }
     
     func deal(winPlayerIndex: Int, _ targetPlayerIndex: Int?, _ yaku: Yaku, _ chips: Int) {
         
         let winPlayer = players[winPlayerIndex]
         var targetPlayer: Player?
+        var otherPlayers = players
+        otherPlayers.removeAtIndex(winPlayerIndex)
         
         if targetPlayerIndex {
-            targetPlayer = players[targetPlayerIndex!]
+            targetPlayer = otherPlayers[targetPlayerIndex!]
         }
         
         let points = yaku.calculatePoints(winPlayer, targetPlayer)
@@ -152,13 +154,11 @@ class Game: NSObject {
             targetPlayer!.playerChips -= chips
             
         } else { // win on self-draw
-            var otherPlayers = players
-            otherPlayers.removeAtIndex(winPlayerIndex)
-            
             let honbaPoints = honba.hashValue * 100
             winPlayer.playerPoints += points.sum + honbaPoints
             winPlayer.playerChips += chips * 3
-    
+            
+            println(otherPlayers)
             for otherPlayer in otherPlayers {
                 if otherPlayer.isDealer {
                     otherPlayer.playerPoints -= points.second! + honbaPoints
@@ -167,6 +167,7 @@ class Game: NSObject {
                 }
                 
                 otherPlayer.playerChips -= chips
+                println(otherPlayer.playerChips)
             }
         }
         
@@ -179,13 +180,11 @@ class Game: NSObject {
     }
     
     func forwardGame() {
-        
         for player in players {
             player.feng.next()
         }
         
         if hand == Hand.Fourth {
-            
             round.next()
         }
         
@@ -197,4 +196,6 @@ class Game: NSObject {
     func continueGame() {
         honba.next()
     }
+    
+
 }

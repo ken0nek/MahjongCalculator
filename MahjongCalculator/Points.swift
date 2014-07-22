@@ -9,6 +9,7 @@
 import UIKit
 
 class Points: NSObject {
+    
     let first: Int
     let second: Int?
     var sum: Int {
