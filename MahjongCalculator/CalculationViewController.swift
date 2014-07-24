@@ -38,9 +38,10 @@ class CalculationViewController: BaseViewController {
         
         // Do any additional setup after loading the view.
     
+        winPlayerSegment.selectedSegmentIndex = gameManager.winPlayerIndex
+        
         fanLabel.text = fanArray[0]
         fanStepper.maximumValue = Double(fanArray.count - 1)
-
         
         fuLabel.text = fuArray[0]
         fuStepper.maximumValue = Double(fuArray.count - 1)

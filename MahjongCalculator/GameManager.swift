@@ -14,6 +14,7 @@ class GameManager: NSObject {
     var deals: [Deal] = []
     var currentGameIndex: Int = 0
     var currentDealIndex: Int = 0
+    var winPlayerIndex: Int = 0
     var currentGame: Game {
     get {
         return games[currentGameIndex]

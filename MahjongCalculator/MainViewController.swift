@@ -128,6 +128,7 @@ class MainViewController: BaseViewController {
                     winButton.setTitleColor(UIColor.redColor(), forState: UIControlState.Normal)
                     winButton.titleLabel.font = UIFont.boldSystemFontOfSize(15)
                     winButton.titleLabel.textAlignment = NSTextAlignment.Center
+                    winButton.addTarget(self, action: Selector("didPressWinButton:"), forControlEvents: UIControlEvents.TouchUpInside)
                     rotateView(winButton)
                     self.view.addSubview(winButton)
                 }
@@ -139,14 +140,14 @@ class MainViewController: BaseViewController {
         view.transform = CGAffineTransformRotate(view.transform, CGFloat(-1 * M_PI_2 * Double(view.tag - 1)))
     }
     
-    @IBAction func goForward() {
-        game.forwardGame()
-        gameLabel.text = game.round.toString() + game.hand.toString()
-        
-        setFengAndPlayerName()
-        
-        honbaLabel.text = game.honba.toString()
-    }
+//    @IBAction func goForward() {
+//        game.forwardGame()
+//        gameLabel.text = game.round.toString() + game.hand.toString()
+//        
+//        setFengAndPlayerName()
+//        
+//        honbaLabel.text = game.honba.toString()
+//    }
     
     func setFengAndPlayerName() {
         
@@ -167,10 +168,10 @@ class MainViewController: BaseViewController {
 
     }
     
-    @IBAction func continueGame() {
-        game.continueGame()
-        honbaLabel.text = game.honba.toString()
-    }
+//    @IBAction func continueGame() {
+//        game.continueGame()
+//        honbaLabel.text = game.honba.toString()
+//    }
     
     func didPressFishingButton(button: ToggleButton) {
         if button.isToggled {
@@ -185,7 +186,12 @@ class MainViewController: BaseViewController {
             
             button.setToggled(true)
         }
-        
+    }
+    
+    func didPressWinButton(button: UIButton) {
+        gameManager.winPlayerIndex = button.tag - 1
+        let cVC = storyboard.instantiateViewControllerWithIdentifier("Calculation") as CalculationViewController
+        self.navigationController.pushViewController(cVC, animated: true)
     }
     
     /*

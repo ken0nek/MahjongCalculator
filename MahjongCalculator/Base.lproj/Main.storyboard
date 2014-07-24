@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6185.7" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ZcO-xa-4De">
     <dependencies>
-        <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6181.2"/>
     </dependencies>
     <scenes>
@@ -141,33 +140,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3MM-2x-XuK">
-                                <rect key="frame" x="93" y="238" width="123" height="30"/>
-                                <state key="normal" title="和了">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="ZWR-p8-g4q" kind="show" id="gzo-Ac-eof"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4P9-Zg-3bd">
-                                <rect key="frame" x="174" y="465" width="103" height="30"/>
-                                <state key="normal" title="次の局">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="goForward" destination="vXZ-lx-hvc" eventType="touchUpInside" id="aaz-XB-iz5"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qsn-kT-ifT">
-                                <rect key="frame" x="62" y="465" width="60" height="30"/>
-                                <state key="normal" title="連チャン">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="continueGame" destination="vXZ-lx-hvc" eventType="touchUpInside" id="v7a-KJ-dvU"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hdd-gD-nGw">
                                 <rect key="frame" x="229" y="386" width="71" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
@@ -231,7 +203,7 @@
         <!--Calculation View Controller-->
         <scene sceneID="in6-7p-4Ky">
             <objects>
-                <viewController id="ZWR-p8-g4q" customClass="CalculationViewController" customModule="MahjongCalculator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Calculation" id="ZWR-p8-g4q" customClass="CalculationViewController" customModule="MahjongCalculator" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4Km-Gb-AgL"/>
                         <viewControllerLayoutGuide type="bottom" id="YgU-Xh-A9Q"/>

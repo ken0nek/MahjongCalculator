@@ -9,5 +9,9 @@
 import UIKit
 
 class ScoreManager: NSObject {
-   
+    var scores: [Score] = []
+    
+    init()  {
+        scores = []
+    }
 }
