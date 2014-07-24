@@ -14,6 +14,11 @@ class GameManager: NSObject {
     var deals: [Deal] = []
     var currentGameIndex: Int = 0
     var currentDealIndex: Int = 0
+    var currentGame: Game {
+    get {
+        return games[currentGameIndex]
+    }
+    }
     
     class func sharedManager() -> GameManager {
     struct Singleton {
@@ -38,6 +43,7 @@ class GameManager: NSObject {
     func recordGame(game: Game) {
         let deal = Deal(game)
         deals += deal
+        println("deals : " + deals.description)
     }
     
     func finishGame(game: Game) {

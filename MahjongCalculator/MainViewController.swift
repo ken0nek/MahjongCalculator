@@ -9,24 +9,6 @@
 import UIKit
 import AVFoundation
 
-extension UIButton {
-    var toggle: Bool {
-    get {
-        return self.toggle
-    }
-    set {
-        self.toggle = newValue
-    }
-    }
-    
-    func setToggle() {
-        if toggle {
-            
-        }
-    }
-    
-}
-
 extension CGPoint {
     func addition(point: CGPoint) -> CGPoint {
         return CGPointMake(self.x + point.x, self.y + point.y)
@@ -60,8 +42,34 @@ class MainViewController: BaseViewController {
         var players = [tommy, fukkun, yoshi, fukudy]
         
         gameManager.startGame(Game(players, 0))
-        game = gameManager.games[gameManager.currentGameIndex]
+        game = gameManager.currentGame
         
+        displayObjects()
+        
+        setFengAndPlayerName()
+        
+        gameLabel.text = game.round.toString() + game.hand.toString()
+        honbaLabel.text = game.honba.toString()
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(animated: Bool)  {
+        super.viewWillAppear(animated)
+        
+        for pointLabel in pointLabels {
+            let player = game.players[pointLabel.tag - 1] as Player
+            pointLabel.text = "\(player.playerPoints)" + " " + "\(player.playerChips)"
+        }
+        
+        gameLabel.text = game.round.toString() + game.hand.toString()
+        honbaLabel.text = game.honba.toString()
+    }
+    
+    func displayObjects() {
         let centerPoint = CGPointMake(320/2, 568/2)
         let radiusArray: [Int] = [60, 85, 110, 135]
         var positionArray: [[CGPoint]] = [
@@ -76,13 +84,13 @@ class MainViewController: BaseViewController {
                 positionArray[ri][dj] = centerPoint.addition(point)
                 // viewWithPosition WithNumber
                 if ri == 0 { // fishing
-                    let fishingButton = UIButton.buttonWithType(UIButtonType.Custom) as UIButton
+                    let fishingButton = ToggleButton.buttonWithType(UIButtonType.Custom) as UIButton
                     fishingButton.frame = CGRectMake(0, 0, 80, 20)
                     fishingButton.tag = dj + 1
                     fishingButton.center = positionArray[ri][dj]
                     fishingButton.setTitle("リーチ", forState: UIControlState.Normal)
                     fishingButton.setTitle("リーチ!", forState: UIControlState.Highlighted)
-                    fishingButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+                    fishingButton.setTitleColor(UIColor.grayColor(), forState: UIControlState.Normal)
                     fishingButton.setTitleColor(UIColor.redColor(), forState: UIControlState.Highlighted)
                     fishingButton.titleLabel.font = UIFont.boldSystemFontOfSize(15)
                     fishingButton.titleLabel.textAlignment = NSTextAlignment.Center
@@ -125,28 +133,6 @@ class MainViewController: BaseViewController {
                 }
             }
         }
-        
-        setFengAndPlayerName()
-        
-        gameLabel.text = game.round.toString() + game.hand.toString()
-        honbaLabel.text = game.honba.toString()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    override func viewWillAppear(animated: Bool)  {
-        super.viewWillAppear(animated)
-        
-        for pointLabel in pointLabels {
-            let player = game.players[pointLabel.tag - 1] as Player
-            pointLabel.text = "\(player.playerPoints)" + " " + "\(player.playerChips)"
-        }
-        
-        gameLabel.text = game.round.toString() + game.hand.toString()
-        honbaLabel.text = game.honba.toString()
     }
     
     func rotateView(var view: UIView) {
@@ -186,13 +172,20 @@ class MainViewController: BaseViewController {
         honbaLabel.text = game.honba.toString()
     }
     
-    func didPressFishingButton(button: UIButton) {
-        let path = NSBundle.mainBundle().pathForResource("tommy", ofType: "mp3")
-        let url = NSURL(fileURLWithPath: path)
-        audioPlayer = AVAudioPlayer(contentsOfURL: url, error: nil)
-        audioPlayer.currentTime = 0.8
-        audioPlayer.prepareToPlay()
-        audioPlayer.play()
+    func didPressFishingButton(button: ToggleButton) {
+        if button.isToggled {
+            button.setToggled(false)
+        } else {
+            let path = NSBundle.mainBundle().pathForResource("tommy", ofType: "mp3")
+            let url = NSURL(fileURLWithPath: path)
+            audioPlayer = AVAudioPlayer(contentsOfURL: url, error: nil)
+            audioPlayer.currentTime = 0.8
+            audioPlayer.prepareToPlay()
+            audioPlayer.play()
+            
+            button.setToggled(true)
+        }
+        
     }
     
     /*

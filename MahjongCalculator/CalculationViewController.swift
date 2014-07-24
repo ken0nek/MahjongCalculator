@@ -39,15 +39,15 @@ class CalculationViewController: BaseViewController {
         // Do any additional setup after loading the view.
     
         fanLabel.text = fanArray[0]
-        fanStepper.maximumValue = Double((fanArray.count - 1))
+        fanStepper.maximumValue = Double(fanArray.count - 1)
 
         
         fuLabel.text = fuArray[0]
-        fuStepper.maximumValue = Double((fuArray.count - 1))
+        fuStepper.maximumValue = Double(fuArray.count - 1)
         
         chipsLabel.text = "\(chips)"
         
-        let game = gameManager.games[gameManager.currentGameIndex] as Game
+        let game = gameManager.currentGame as Game
         setPlayersName(winPlayerSegment, game.players)
         
         controlTargetPlayerSegmentTitle(winPlayerSegment)
@@ -63,7 +63,7 @@ class CalculationViewController: BaseViewController {
     }
 
     @IBAction func didPressRegisterButton() {
-        let game = gameManager.games[gameManager.currentGameIndex] as Game
+        let game = gameManager.currentGame as Game
         
         var targetPlayerIndex: Int?
         
@@ -74,6 +74,8 @@ class CalculationViewController: BaseViewController {
         let yaku = Yaku(fan, fu)
         
         game.deal(winPlayerSegment.selectedSegmentIndex, targetPlayerIndex, yaku, chips)
+        
+        gameManager.recordGame(game)
 
         self.navigationController.popViewControllerAnimated(true)
     }
@@ -82,7 +84,8 @@ class CalculationViewController: BaseViewController {
         
         let index = Int((stepper.value) as Double)
         
-        if stepper.tag == 1 {
+        switch stepper.tag {
+        case 1:
             fanLabel.text = fanArray[index]
             
             switch index {
@@ -100,12 +103,14 @@ class CalculationViewController: BaseViewController {
                 fuStepper.alpha = 1
                 fuLabel.alpha = 1
             }
-        } else if stepper.tag == 2 {
+        case 2:
             fuLabel.text = fuArray[index]
             fu = fuArray[index].toInt()!
-        } else {
+        case 3:
             chips = index
             chipsLabel.text = "\(chips)"
+        default:
+            break
         }
     }
     
@@ -125,7 +130,7 @@ class CalculationViewController: BaseViewController {
     
     @IBAction func controlTargetPlayerSegmentTitle(segment: UISegmentedControl) {
         
-        let game = gameManager.games[gameManager.currentGameIndex] as Game
+        let game = gameManager.currentGame as Game
         otherPlayers = game.players
         otherPlayers.removeAtIndex(winPlayerSegment.selectedSegmentIndex)
         

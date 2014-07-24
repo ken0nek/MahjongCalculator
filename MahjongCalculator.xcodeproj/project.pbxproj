@@ -25,6 +25,7 @@
 		4ADCA2351978AA4E00E4C6EA /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADCA2341978AA4E00E4C6EA /* BaseNavigationController.swift */; };
 		4ADCA2371978AB7800E4C6EA /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADCA2361978AB7800E4C6EA /* ScoreViewController.swift */; };
 		4ADCA2391978AB8900E4C6EA /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADCA2381978AB8900E4C6EA /* SettingViewController.swift */; };
+		4AEA20C219811549001BEB70 /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEA20C119811549001BEB70 /* ToggleButton.swift */; };
 		4AF204A0196F769B00891AFD /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF2049F196F769B00891AFD /* BaseViewController.swift */; };
 		4AF204A2196F7EE600891AFD /* CalculationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF204A1196F7EE600891AFD /* CalculationViewController.swift */; };
 		4AF204AA196FE0EB00891AFD /* Points.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF204A9196FE0EB00891AFD /* Points.swift */; };
@@ -65,6 +66,7 @@
 		4ADCA2341978AA4E00E4C6EA /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		4ADCA2361978AB7800E4C6EA /* ScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
 		4ADCA2381978AB8900E4C6EA /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		4AEA20C119811549001BEB70 /* ToggleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleButton.swift; sourceTree = "<group>"; };
 		4AF2049F196F769B00891AFD /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		4AF204A1196F7EE600891AFD /* CalculationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculationViewController.swift; sourceTree = "<group>"; };
 		4AF204A9196FE0EB00891AFD /* Points.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Points.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				4AF204A9196FE0EB00891AFD /* Points.swift */,
 				4AA8C3AF1974D06D00FBF287 /* ScoreManager.swift */,
 				4A9EEB41197353E1006163C4 /* Score.swift */,
+				4AEA20C119811549001BEB70 /* ToggleButton.swift */,
 				4A9EEB4319739256006163C4 /* tommy.mp3 */,
 				4AC90F50196E2399004829BB /* Images.xcassets */,
 				4AC90F48196E2399004829BB /* MahjongCalculator.xcdatamodeld */,
@@ -266,6 +269,7 @@
 				4AF204A2196F7EE600891AFD /* CalculationViewController.swift in Sources */,
 				4A14F98E197E247F00AB279B /* MCPlayer.m in Sources */,
 				4AC90F67196E2454004829BB /* MainViewController.swift in Sources */,
+				4AEA20C219811549001BEB70 /* ToggleButton.swift in Sources */,
 				4AC90F6D196E51C7004829BB /* Game.swift in Sources */,
 				4ADCA2331977B27900E4C6EA /* Deal.swift in Sources */,
 				4ADCA2391978AB8900E4C6EA /* SettingViewController.swift in Sources */,
